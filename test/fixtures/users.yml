@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  belongs: MyString
+  college_name: MyString
+  grade: 1
+  icon: MyString
+  profile: MyText
+  place: MyString
+  HP: MyString
+  TEL: MyString
+
+two:
+  name: MyString
+  belongs: MyString
+  college_name: MyString
+  grade: 1
+  icon: MyString
+  profile: MyText
+  place: MyString
+  HP: MyString
+  TEL: MyString

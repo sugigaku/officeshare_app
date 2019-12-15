@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+  <p>サービス内容</p>
+  <ul>
+    <li>検索する</li>
+    <a href="user/belongs" onclick="disabled=true;"><li>新規登録</li></a>
+    <li>ログイン</li>
+  </ul>
+  </header>
+
+
+    <%= yield %>
+  </body>
+</html>
