@@ -10,7 +10,8 @@ class UserController < ApplicationController
 
   def create_student
     @user=User.new(
-      userid: params[:userid], 
+      userid: params[:userid],
+      password: params[:password],
       name: params[:name], 
       college_name: params[:college_name], 
       grade: params[:grade], 
@@ -38,7 +39,7 @@ class UserController < ApplicationController
       session[:user_id]=@user.id
       redirect_to("user/student_mypage")
     else
-      @error_message="登録名またはパスワードが間違っています"
+      @error_message="ユーザIDまたはパスワードが間違っています"
       @name= params[:name]
       @password= params[:password]
       render("user/login_form")
