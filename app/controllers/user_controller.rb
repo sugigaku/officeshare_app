@@ -31,7 +31,7 @@ class UserController < ApplicationController
 
 
   def student_mypage
-   
+   @user=User.find_by(id: session[:user_id])
    
   end
 

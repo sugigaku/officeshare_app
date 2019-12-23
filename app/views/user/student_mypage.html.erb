@@ -12,12 +12,12 @@
 
 <div class="container text-center">
   
-    <img src="<%="/user_images/#{@current_user.icon}"%>">
-    <h2><%= @current_user.name %></h2>
+    <img src="<%="/user_images/#{@user.icon}"%>">
+    <h2><%= @user.name %></h2>
     <div class="text-left ml-5">
-      <p>大学:<%= @current_user.college_name %></p>
-      <p>学年:<%= @current_user.grade %></p>
-      <p>プロフィール:<%= @current_user.profile %></p>
+      <p>大学:<%= @user.college_name %></p>
+      <p>学年:<%= @user.grade %></p>
+      <p>プロフィール:<%= @user.profile %></p>
 
     </div>
     
