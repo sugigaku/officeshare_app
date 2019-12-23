@@ -10,13 +10,16 @@ class UserController < ApplicationController
 
   def create_student
     @user=User.new(
+      belongs:"student",
       userid: params[:userid],
       password: params[:password],
       name: params[:name], 
       college_name: params[:college_name], 
       grade: params[:grade], 
-      icon: params[:icon], 
+      icon: "user_default.png", 
       profile: params[:profile])
+
+    @user
     
    @user.save
     session[:user_id]=@user.id
@@ -28,7 +31,7 @@ class UserController < ApplicationController
 
 
   def student_mypage
-   @user=User.find_by(id: params[:id])
+   
    
   end
 
@@ -44,7 +47,24 @@ class UserController < ApplicationController
       @password= params[:password]
       render("user/login_form")
     end
+  end
 
+  def login
+    @user=User.find_by(userid: params[:userid], password: params[:password])
+    if @user
+      session[:user_id]=@user.id
+      redirect_to("user/@user.id")
+    else
+      @error_message="ユーザIDまたはパスワードが間違っています"
+      @userid= params[:userid]
+      @password= params[:password]
+      render("user/login")
+    end
+  end
+
+  def logout
+   session[:user_id]=nil
+   redirect_to("user/login")
   end
 
 end

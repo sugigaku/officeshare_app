@@ -1,15 +1,28 @@
-<ul>
-  <li>探す</li>
-  <li>メッセージ</li>
-  <li>応募履歴</li>
-</ul>
+<div class="container-fluid">
+ <div class="row">
+   <div class="col col-md-2">
+     <ul class="list-unstyled">
+       <li>探す</li>
+       <li>メッセージ</li>
+       <li>応募履歴</li>
+     </ul>
+   </div>
+ </div>
+</div>
 
-<div class="main-wrapper">
-<img>
+<div class="container text-center">
+  
+    <img src="<%="/user_images/#{@current_user.icon}"%>">
+    <h2><%= @current_user.name %></h2>
+    <div class="text-left ml-5">
+      <p>大学:<%= @current_user.college_name %></p>
+      <p>学年:<%= @current_user.grade %></p>
+      <p>プロフィール:<%= @current_user.profile %></p>
 
-<p class=""></p>
-<p class="">大学：</p>
-<p class="">学年：</p>
-<p class="">プロフィール：</p>
+    </div>
+    
+ 
 
+    
+  
 </div>
