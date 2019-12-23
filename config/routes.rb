@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get "user/new_company"=>"user#new_company"
  post "user/create_student"=>"user#create_student"
   get "user/:id"=>"user#student_mypage"
-  get "user/login"=>"user#login_form"
-  post "/login"=>"user#login"
-  post "/logout"=>"user#logout"
+  get "login"=>"user#login_form"
+  post "login"=>"user#login"
+  post "logout"=>"user#logout"
  
 
   get '/'=>"home#top"

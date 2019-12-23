@@ -58,13 +58,13 @@ class UserController < ApplicationController
       @error_message="ユーザIDまたはパスワードが間違っています"
       @userid= params[:userid]
       @password= params[:password]
-      render("user/login")
+      render("/login")
     end
   end
 
   def logout
    session[:user_id]=nil
-   redirect_to("user/login")
+   redirect_to("/login")
   end
 
 end
