@@ -1,0 +1,23 @@
+<div class="container-fluid">
+ <div class="row">
+   <div class="col col-md-2">
+     <ul class="list-unstyled">
+       <li>探す</li>
+       <li>メッセージ</li>
+       <li>掲載履歴</li>
+     </ul>
+   </div>
+ </div>
+</div>
+
+<div class="container text-center">
+  
+    <img src="<%="/user_images/#{@user.icon}"%>">
+    <h2><%= @user.name %></h2>
+    <div class="text-left ml-5">
+    
+      <p>プロフィール:<%= @user.profile %></p>
+
+    </div>
+</div>
+<div class="text-center"><a href="">編集する</a></div>

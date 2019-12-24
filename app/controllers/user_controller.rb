@@ -23,7 +23,7 @@ class UserController < ApplicationController
    if @user.save
     session[:user_id]=@user.id
     flash[:notice]="ユーザを登録しました。"
-    redirect_to("/user/#{@user.id}")
+    redirect_to("/user/student/#{@user.id}")
    else
     @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
     @userid= params[:userid]
@@ -48,7 +48,7 @@ class UserController < ApplicationController
    if @user.save
     session[:user_id]=@user.id
     flash[:notice]="ユーザを登録しました。"
-    redirect_to("/user/#{@user.id}")
+    redirect_to("/user/company/#{@user.id}")
    else
     @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
     @userid= params[:userid]
@@ -62,6 +62,10 @@ class UserController < ApplicationController
   def student_mypage
    @user=User.find_by(id: session[:user_id])
    
+  end
+
+  def company_mypage
+    @user=User.find_by(id: session[:user_id])
   end
 
   def login_form
