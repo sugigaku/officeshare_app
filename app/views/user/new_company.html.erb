@@ -1,0 +1,25 @@
+<%if @error_messsage%>
+<div><%=@error_message%></div>
+<%end%>
+<%=form_tag("/user/create_company")do%>
+
+<table>
+  <tr>
+    <th>ユーザーID</th>
+    <td><input type="text" name="userid" value="<%=@userid%>"></td>
+  </tr>
+  <tr>
+    <th>パスワード</th>
+    <td><input type="password" name="password" value="<%=@password%>"></td>
+  </tr>
+  <tr>
+    <th>会社名</th>
+    <td><input type="text" name="name"></td>
+  </tr>
+  <tr>
+    <th>プロフィール</th>
+    <td><textarea name="profile" id="" cols="30" rows="10"></textarea></td>
+  </tr>
+</table>
+<input type="submit" value="登録する">
+<%end%>

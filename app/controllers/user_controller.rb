@@ -5,8 +5,7 @@ class UserController < ApplicationController
   def new_student
   end
 
-  def new_company
-  end
+ 
 
   def create_student
     @user=User.new(
@@ -16,17 +15,47 @@ class UserController < ApplicationController
       name: params[:name], 
       college_name: params[:college_name], 
       grade: params[:grade], 
-      icon: "user_default.png", 
-      profile: params[:profile])
+      profile: params[:profile],
+      icon: "user_default.png")
 
     @user
     
-   @user.save
+   if @user.save
     session[:user_id]=@user.id
     flash[:notice]="ユーザを登録しました。"
-    
     redirect_to("/user/#{@user.id}")
+   else
+    @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
+    @userid= params[:userid]
+    @password= params[:password]
+    render("user/new_student")
+   end
    
+  end
+
+  def new_company
+  end
+
+  def create_company
+    @user=User.new(
+      belongs:"company",
+      userid: params[:userid],
+      password: params[:password],
+      name: params[:name],
+      profile: params[:profile],
+      icon: "user_default.png"
+    )
+   if @user.save
+    session[:user_id]=@user.id
+    flash[:notice]="ユーザを登録しました。"
+    redirect_to("/user/#{@user.id}")
+   else
+    @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
+    @userid= params[:userid]
+    @password= params[:password]
+    render("user/new_company")
+   end
+
   end
 
 
@@ -36,17 +65,7 @@ class UserController < ApplicationController
   end
 
   def login_form
-    @user=User.find_by(userid: params[:userid], password: params[:password])
-    if @user
-      flash[:notice]="ログインしました"
-      session[:user_id]=@user.id
-      redirect_to("user/student_mypage")
-    else
-      @error_message="ユーザIDまたはパスワードが間違っています"
-      @name= params[:name]
-      @password= params[:password]
-      render("user/login_form")
-    end
+    
   end
 
   def login

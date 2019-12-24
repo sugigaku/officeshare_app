@@ -1,22 +1,25 @@
 
 
 <%=form_tag("/user/create_student")do%>
+<%if @error_message%>
+  <div><%=@error_message%></div>
+  <%end%>
 <table>
  <tbody>
    <tr>
    <th class="userid">ユーザーID</th>
-   <td><input type="text" name="userid"></td>
+   <td><input type="text" name="userid" value="<%=@userid%>"></td>
    </tr>
    <tr>
    <th class="password">パスワード</th>
-   <td><input type="text" name="password"></td>
+   <td><input type="text" name="password" value="<%=@password%>"></td>
    </tr>
     <tr>
     <th class="student-name">名前</th>
     <td class=""><input type="text" name="name"></td>
     </tr>
     <tr>
-    <th class="college_name">大学名</th>
+    <th class="college_name">大学</th>
     <td class=""><input type="text" name="college_name"></td>
     </tr>
     <tr>
@@ -25,7 +28,7 @@
     </tr>
     <tr>
     <th class="profile-text">プロフィール</th>
-    <td class=""><textarea name="profile"></textarea></td>
+    <td class=""><textarea cols="30" rows="10" name="profile"></textarea></td>
     </tr>
  </tbody>
 </table>

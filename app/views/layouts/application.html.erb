@@ -14,7 +14,7 @@
     <header>
      <div class="container-fluied">
        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-         <a href="" class="navbar-brand">Logo</a>
+         <a href="/" class="navbar-brand">Logo</a>
          <%if session[:user_id]%>
          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu2"><span class="navbar-toggler-icon"></span>
         </button>
@@ -24,8 +24,9 @@
             <%=session[:user_id]%>
             
             <a href="" class="nav-item nav-link">検索する</a>
+            <a href="user/session[:user_id]" class="nav-item nav-link">マイページ</a>
             <a href="" class="nav-item nav-link">お問い合せ</a>
-            <a href="user/belongs" class="nav-item nav-link">新規登録</a>
+            
           </div>
         </div>
          <%else%>
