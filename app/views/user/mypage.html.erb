@@ -1,0 +1,48 @@
+<%if @user.grade%>
+<div class="container-fluid">
+ <div class="row">
+   <div class="col col-md-2">
+     <ul class="list-unstyled">
+       <li><a href="#">検索する</a></li>
+       <li><a href="#">メッセージ</a></li>
+       <li><a href="#">応募履歴</a></li>
+     </ul>
+   </div>
+ </div>
+</div>
+
+<div class="container text-center">
+  
+    <img src="<%="/user_images/#{@user.icon}"%>">
+    <h2><%= @user.name %></h2>
+    <div class="text-left ml-5">
+      <p>大学:<%= @user.college_name %></p>
+      <p>学年:<%= @user.grade %></p>
+      <p>プロフィール:<%= @user.profile %></p>
+
+    </div>
+</div>
+<%else%>
+<div class="container-fluid">
+ <div class="row">
+   <div class="col col-md-2">
+     <ul class="list-unstyled">
+       <li><a href="#">検索する</a></li>
+       <li><a href="/new_post">掲載する</a></li>
+       <li><a href="#">メッセージ</a></li>
+       <li><a href="#">掲載履歴</a></li>
+     </ul>
+   </div>
+ </div>
+</div>
+
+<div class="container text-center">
+  
+    <img src="<%="/user_images/#{@user.icon}"%>">
+    <h2><%= @user.name %></h2>
+    <div class="text-left ml-5">
+      <p>プロフィール:<%= @user.profile %></p>
+
+    </div>
+</div>
+<%end%>
