@@ -1,5 +1,5 @@
 <div class="main users-new">
-  <div class="container">
+  <div class="container text-center mt-2">
   <%if @error_message%>
     <div><%=@error_message%></div>
     <%end%>
@@ -10,7 +10,8 @@
       <input name="userid">
       <p>パスワード</p>
       <input name="password" type="password">
-      <input type="submit" value="ログイン">
+      <br>
+      <input class="mt-2" type="submit" value="ログイン">
     <%end%>
       
       </div>

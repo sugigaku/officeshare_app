@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   
   get "/login"=>"user#login_form"
   post "/login"=>"user#login"
+  #postでログアウトできてないまま、getで暫定的に対応
   post "/logout"=>"user#logout"
+  get "/logout"=>"user#logout"
  
 
   get '/'=>"home#top"

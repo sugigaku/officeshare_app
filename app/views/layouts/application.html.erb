@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>みんなのへや</title>
   </head>
   <body>
     <header>
@@ -20,12 +20,14 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navmenu2">
           <div class="navbar-nav">
-            <%=link_to("ログアウト","/logout",{method: :post})%>
-            <%=session[:user_id]%>
             
             <a href="" class="nav-item nav-link">検索する</a>
-            <a href="user/session[:user_id]" class="nav-item nav-link">マイページ</a>
+
+            <a href="session[:user_id]" class="nav-item nav-link">マイページ</a>
+
             <a href="" class="nav-item nav-link">お問い合せ</a>
+            
+            <%=link_to("ログアウト","/logout",{method: :post})%>
             
           </div>
         </div>
