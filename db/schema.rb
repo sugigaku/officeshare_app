@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_093629) do
+ActiveRecord::Schema.define(version: 2020_01_17_034119) do
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+    t.text "profile"
+    t.string "place"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "place"
@@ -18,6 +28,18 @@ ActiveRecord::Schema.define(version: 2020_01_16_093629) do
     t.integer "mxpeople"
     t.text "requirement"
     t.text "detail"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "college"
+    t.string "grade"
+    t.string "integer"
+    t.string "password"
+    t.string "icon"
+    t.text "profile"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

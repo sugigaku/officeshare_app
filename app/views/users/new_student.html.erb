@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_with model: @user, local: true do |f| %>
+  <%= form_with model: @Student, local: true do |f| %>
 
       <% if @error_message %>
         <div><%= @error_message %></div>
@@ -16,8 +16,8 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :college_name %>
-      <%= f.text_field :college_name, class: "form-control", placeholder: "college_name" %>
+      <%= f.label :college %>
+      <%= f.text_field :college, class: "form-control", placeholder: "college" %>
     </div>
 
     <div class="form-group">
