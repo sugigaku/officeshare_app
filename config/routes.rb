@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   
   get "students/new"=>"students#new"
   post "students/new"=>"students#create"
-  
  # post "students/create_student"=>"students#create_student"
   get "students/show/:id"=>"students#show"
   
