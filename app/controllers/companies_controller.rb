@@ -9,27 +9,27 @@ class CompaniesController < ApplicationController
 
   def show; end
   
-  def create_company
+  def create
     @company = Company.new(company_params)
     @company.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
 
    if @company.save
-     redirect_to "users/show_company"
+     redirect_to "companies/show/#{@company.id}"
    else
     @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
-    render 'new_company'
+    render 'new'
    end
   end
   
-  def show_company
+  def show
     
   end
   
-  def new_company
-    @company=Company.new
+  def new
+    @company=Company.new()
   end
 
-=begin
+
 private
 
   def set_user
@@ -37,10 +37,9 @@ private
     @user = User.find(id)
   end
 
-  def user_params
-    params.require(:user).permit(:name, :password, :college_name, :grade, :profile)
+  def company_params
+    params.require(:company).permit(:name, :password, :place, :email, :profile)
   end
 
 
-=end
 end

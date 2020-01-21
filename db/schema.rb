@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_17_034119) do
+ActiveRecord::Schema.define(version: 2020_01_18_100303) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2020_01_17_034119) do
     t.string "name"
     t.string "college"
     t.string "grade"
-    t.string "integer"
     t.string "password"
     t.string "icon"
     t.text "profile"

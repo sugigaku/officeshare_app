@@ -3,8 +3,8 @@ class StudentsController < ApplicationController
   
   #before_action :set_user, only: %i[show]
 
-  def new_student
-    @student = Student.new
+  def new
+    @student = Student.new()
   end
 
   def index
@@ -13,48 +13,33 @@ class StudentsController < ApplicationController
 
   def show; end
 
-  def create_student
+  def create
     @student = Student.new(student_params)
     @student.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
 
    if @student.save
-     redirect_to "users/show_student"
+     redirect_to "students/show/#{@student.id}"
    else
     @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
-    render 'new_student'
+    render 'new'
    end
   end
   
-  def show_student
+  def show
     
   end
-  
-  def create_company
-    @company = Company.new(company_params)
-    @company.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
-
-   if @company.save
-     redirect_to "users/show_company"
-   else
-    @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
-    render 'new_company'
-   end
-  end
-  
-  def show_company
-    
-  end
+ 
+ 
+ 
   
   #以下企業・学生分別の試み
   def belongs
     
   end
   
-  def new_company
-    @company=Company.new
-  end
+ 
 
-=begin
+
 private
 
   def set_user
@@ -62,10 +47,9 @@ private
     @user = User.find(id)
   end
 
-  def user_params
-    params.require(:user).permit(:name, :password, :college_name, :grade, :profile)
+  def student_params
+    params.require(:student).permit(:name, :password, :college, :grade, :profile)
   end
 
 
-=end
 end

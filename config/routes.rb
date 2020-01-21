@@ -4,14 +4,16 @@ Rails.application.routes.draw do
   get "users/belongs"=>"users#belongs"
   
   
-  get "students/new_student"=>"students#new_student"
-  post "students/create_student"=>"students#create_student"
-  get "students/show_student"=>"students#show_student"
+  get "students/new"=>"students#new"
+  post "students/new"=>"students#create"
+  
+ # post "students/create_student"=>"students#create_student"
+  get "students/show/:id"=>"students#show"
   
   
-  get "companies/new_company"=>"companies#new_company"
-  post "companies/create_company"=>"companies#create_company"
-  get "companies/show_company"=>"companies#show_company"
+  get "companies/new"=>"companies#new"
+  post "companies/new"=>"companies#create"
+  get "companies/show/:id"=>"companies#show"
   
   #resources :users
 end
