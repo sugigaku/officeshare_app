@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
   root "home#top"
+  
   get "users/belongs"=>"users#belongs"
-  get "users/new_student"=>"users#new_student"
-  get "users/new_company"=>"users#new_company"
-  post "users/create_student"=>"users#create_student"
-  post "users/create_company"=>"users#create_company"
-  get "users/show_student"=>"users#show_student"
-  get "users/show_company"=>"users#show_company"
+  
+  
+  get "students/new"=>"students#new"
+  post "students/new"=>"students#create"
+ # post "students/create_student"=>"students#create_student"
+  get "students/show/:id"=>"students#show"
+  
+  
+  get "companies/new"=>"companies#new"
+  post "companies/new"=>"companies#create"
+  get "companies/show/:id"=>"companies#show"
   
   #resources :users
 end

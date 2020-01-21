@@ -1,4 +1,3 @@
-<!-- <%if @user.grade%>-->
 <div class="container-fluid">
  <div class="row">
    <div class="col col-md-2">
@@ -13,12 +12,12 @@
 
 <div class="container text-center">
   
-    <img src="<%="/user_images/#{@user.icon}"%>">
-    <h2><%= @user.name %></h2>
+    <img src="<%="/user_images/#{@student.icon}"%>">
+    <h2><%= @student.name %></h2>
     <div class="text-left ml-5">
-      <p>大学:<%= @user.college_name %></p>
-      <p>学年:<%= @user.grade %></p>
-      <p>プロフィール:<%= @user.profile %></p>
+      <p>大学:<%= @student.college %></p>
+      <p>学年:<%= @student.grade %></p>
+      <p>プロフィール:<%= @student.profile %></p>
 
     </div>
 </div>
@@ -45,4 +44,4 @@
 
     </div>
 </div>
-<%end%> -->
+-->
