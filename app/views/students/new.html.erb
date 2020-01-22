@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_with model: @Student, local: true do |f| %>
+  <%= form_with model: @student, url: students_path, local: true do |f| %>
 
       <% if @error_message %>
         <div><%= @error_message %></div>

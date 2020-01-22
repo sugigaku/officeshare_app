@@ -1,14 +1,11 @@
 class StudentsController < ApplicationController
    
-  
-  #before_action :set_user, only: %i[show]
-
   def new
-    @student = Student.new()
+    @student = Student.new
   end
 
   def index
-    @users = User.all
+    @students = Students.all
   end
 
   def show; end
@@ -29,27 +26,14 @@ class StudentsController < ApplicationController
     
   end
  
- 
- 
-  
   #以下企業・学生分別の試み
   def belongs
     
   end
   
- 
-
-
-private
-
-  def set_user
-    id = params[:id] || params[:user_id]
-    @user = User.find(id)
-  end
+  private
 
   def student_params
     params.require(:student).permit(:name, :password, :college, :grade, :profile)
   end
-
-
 end
