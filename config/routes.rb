@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   
   get '/users/belongs', to: 'users#belongs'
   resources :students
+  resources :companies
+ 
 end
