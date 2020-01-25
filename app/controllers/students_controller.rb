@@ -1,5 +1,7 @@
 class StudentsController < ApplicationController
    
+before_action :set_student
+
   def new
     @student = Student.new
   end
@@ -15,7 +17,8 @@ class StudentsController < ApplicationController
     @student.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
 
    if @student.save
-     redirect_to "/students/#{@student.id}"
+    session[:student_id] = @student.id
+    redirect_to "/students/#{@student.id}"
    else
     @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
     render 'new'
@@ -23,7 +26,8 @@ class StudentsController < ApplicationController
   end
   
   def show
-    @student=Student.find_by(id: session[:student_id])
+    # set_student効いてるか確認　@student=Student.find(params[:id])
+    #find_by(id: session[:student_id])
     
   end
  
@@ -33,6 +37,13 @@ class StudentsController < ApplicationController
   end
   
   private
+
+  def set_student
+    if session[:student_id]
+      @student = Student.find_by(id: session[:student_id])
+    end
+  end
+
 
   def student_params
     params.require(:student).permit(:name, :password, :college, :grade, :profile)

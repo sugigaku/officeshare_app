@@ -15,7 +15,8 @@
      <div class="container-fluied">
        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
          <a href="/" class="navbar-brand">Logo</a>
-         <%if session[:user_id]%>
+         <% if session[:student_id] %>
+         <%= session[:student_id] %> 
          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu2"><span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navmenu2">
@@ -23,7 +24,7 @@
 
             <a href="" class="nav-item nav-link">検索する</a>
 
-            <a href="session[:user_id]" class="nav-item nav-link">マイページ</a>
+            <a href="@student.id" class="nav-item nav-link">マイページ</a>
 
             <a href="" class="nav-item nav-link">お問い合せ</a>
 
@@ -31,7 +32,24 @@
 
           </div>
         </div>
-         <%else%>
+         <% elsif session[:company_id] %>
+         <%=session[:company_id] %>
+         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu2"><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navmenu2">
+          <div class="navbar-nav">
+
+            <a href="" class="nav-item nav-link">検索する</a>
+
+            <a href="@company.id" class="nav-item nav-link">マイページ</a>
+
+            <a href="" class="nav-item nav-link">お問い合せ</a>
+
+            <%=link_to("ログアウト","/logout",{method: :post})%>
+
+          </div>
+        </div>
+        <%else%>
          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu1"><span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navmenu1">
