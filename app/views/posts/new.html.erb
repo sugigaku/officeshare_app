@@ -6,28 +6,28 @@
         <%end%>
 
         <div class="form-group">
-            <%= f.label :place %>
-            <%= f.text_field :place, class: "form-control", placeholder: "Place" %>
+            <%= f.label :場所 %>
+            <%= f.text_field :place, class: "form-control", placeholder: "場所" %>
         </div>
 
         <div class="form_group">
-            <%= f.label :date %>
-            <%= f.text_field :date, class: "form-control", placeholder: "Date" %>
+            <%= f.label :日付 %>
+            <%= f.date_field :date, class: "form-control", placeholder: "日付" %>
         </div>
 
         <div class="form_group">
-            <%= f.label :mxpeople%>
-            <%= f.text_field :mxpeople, class: "form-control", placeholder: "Mxpeople" %>
+            <%= f.label :利用可能人数%>
+            <%= f.number_field :mxpeople, class: "form-control", placeholder: "利用可能人数" %>
         </div>
 
         <div class="form_group"> 
-            <%= f.label :requirement %>
-            <%= f.text_area :requirement, class: "form-control", placeholder:"Requirement", row: 6 %>
+            <%= f.label :条件 %>
+            <%= f.text_area :requirement, class: "form-control", placeholder:"条件", row: 6 %>
         </div>
 
         <div class="form_group"> 
-            <%= f.label :detail %>
-            <%= f.text_area :detail, class: "form-control", placeholder:"Detail", row: 6 %>
+            <%= f.label :詳細 %>
+            <%= f.text_area :detail, class: "form-control", placeholder:"詳細", row: 6 %>
         </div>
 
         

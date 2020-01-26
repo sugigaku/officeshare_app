@@ -14,7 +14,7 @@
     <header>
      <div class="container-fluied">
        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-         <a href="/" class="navbar-brand">Logo</a>
+         
          <% if session[:student_id] %>
          <%= session[:student_id] %> 
          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu2"><span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
 
             <a href="" class="nav-item nav-link">検索する</a>
 
-            <a href="@company.id" class="nav-item nav-link">マイページ</a>
+            <a href="companies/@company.id" class="nav-item nav-link">マイページ</a>
 
             <a href="" class="nav-item nav-link">お問い合せ</a>
 
