@@ -36,7 +36,14 @@ class CompaniesController < ApplicationController
 
   
   def login
-
+    @company = Company.find_by(name: params[:name], password: params[:password])
+    if @company
+      session[:company_id] = @company.id
+      redirect_to "/companies/#{@company.id}"
+    else
+      @error_message = "名前またはパスワードが間違っています"
+      render "login_form"
+    end
   end
 
 

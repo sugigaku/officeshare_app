@@ -1,0 +1,20 @@
+<div class="container">
+  <%= form_with url: companies_login_path, local: true do |f| %>
+
+      <% if @error_message %>
+        <div><%= @error_message %></div>
+      <% end %>
+
+    <div class="form-group">
+      <%= f.label :名前 %>
+      <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :パスワード %>
+      <%= f.password_field :password, class: "form-control", placeholder: "パスワード" %>
+    </div>
+
+    <%= f.submit %>
+  <% end %>
+</div>
