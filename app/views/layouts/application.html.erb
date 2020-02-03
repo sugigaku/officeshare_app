@@ -28,8 +28,7 @@
 
             <a href="" class="nav-item nav-link">お問い合せ</a>
 
-            <%=link_to("ログアウト","/logout",{method: :post})%>
-
+            <a href="/" class="nav-item nav-link">ログアウト</a>
           </div>
         </div>
          <% elsif session[:company_id] %>
@@ -45,7 +44,7 @@
 
             <a href="" class="nav-item nav-link">お問い合せ</a>
 
-            <%=link_to("ログアウト","/logout",{method: :post})%>
+            <%=link_to("ログアウト","/")%>
 
           </div>
         </div>
@@ -54,9 +53,9 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navmenu1">
           <div class="navbar-nav">
-            <%= link_to '新規登録', "users/belongs", class: "nav-item nav-link" %>
-            <a href="#" class="nav-item nav-link">ログイン</a>
-            <a href="#" class="nav-item nav-link">検索する</a>
+            <%= link_to '新規登録', "users/select", class: "nav-item nav-link" %>
+            <a href="users/login_select" class="nav-item nav-link">ログイン</a>
+            
 
           </div>
         </div>

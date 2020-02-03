@@ -1,7 +1,6 @@
 class CompaniesController < ApplicationController
 
   before_action :set_company
- # before_action :set_user, only: %i[show]
 
   def index
     @companies = Company.all
@@ -23,12 +22,23 @@ class CompaniesController < ApplicationController
   end
   
   def show
-   #set_company確認のため @company=Company.find(params[:id])
+
   end
   
   def new
+    render layout: "application_not_login"
     @company=Company.new
   end
+
+  def login_form 
+    render layout: "application_not_login"
+  end
+
+  
+  def login
+
+  end
+
 
 
 private
@@ -42,11 +52,6 @@ private
  end
 
   
-  #def set_user
-   # id = params[:id] || params[:user_id]
-    #@user = User.find(id)
-  #end
-
   def company_params
     params.require(:company).permit(:name, :password, :place, :email, :profile)
   end

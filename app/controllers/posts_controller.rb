@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     def index 
-        @posts=Posts.all
+     @posts=Posts.all
     end
 
     def new
@@ -18,6 +18,9 @@ class PostsController < ApplicationController
          @company= Company.find_by(id: session[company_id])
          @post.company_id = @company.id
          redirect_to "/companies/#{@company.id}"
+      else
+        @error_message="エラー"
+        render "new"
       end
 
     end

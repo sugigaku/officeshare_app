@@ -3,6 +3,7 @@ class StudentsController < ApplicationController
 before_action :set_student
 
   def new
+    render layout: "application_not_login"
     @student = Student.new
   end
 
@@ -24,17 +25,34 @@ before_action :set_student
     render 'new'
    end
   end
+
   
   def show
-    # set_student効いてるか確認　@student=Student.find(params[:id])
-    #find_by(id: session[:student_id])
+    
     
   end
  
-  #以下企業・学生分別の試み
-  def belongs
+
+  def login_form 
+    render layout: "application_not_login"
+  end
+
+  
+  def login
+    @student = Student.find_by(name: params[:name], password: params[:password])
+    if @student
+      session[:student_id] = @student.id
+      redirect_to "/students/#{@student.id}"
+    else
+      @error_message = "名前またはパスワードが間違っています"
+      render "login_form"
+    end
+  end
+
+  def edit
     
   end
+
   
   private
 

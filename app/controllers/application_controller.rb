@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     if @current_user==nil
       redirect_to("/login")
   end
+
+  
  
 end
 
