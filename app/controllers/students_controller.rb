@@ -64,6 +64,6 @@ before_action :set_student
 
 
   def student_params
-    params.require(:student).permit(:name, :email, :password, :college, :grade, :profile)
+    params.permit(:name, :email, :password, :college, :grade, :profile)
   end
 end
