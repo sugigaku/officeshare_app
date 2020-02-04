@@ -24,7 +24,7 @@
 
             <a href="" class="nav-item nav-link">検索する</a>
 
-            <a href="@student.id" class="nav-item nav-link">マイページ</a>
+            <a href="" class="nav-item nav-link">マイページ</a>
 
             <a href="" class="nav-item nav-link">お問い合せ</a>
 
@@ -40,8 +40,7 @@
 
             <a href="" class="nav-item nav-link">検索する</a>
 
-            <a href="companies/@company.id" class="nav-item nav-link">マイページ</a>
-
+            <%= link_to "マイページ", "company_path" %>
             <a href="" class="nav-item nav-link">お問い合せ</a>
 
             <%=link_to("ログアウト","/")%>
