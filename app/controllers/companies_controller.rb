@@ -51,6 +51,21 @@ class CompaniesController < ApplicationController
   end
 
 
+  def edit
+  end
+
+
+  def update
+    @company.update(@company_params)
+    if @company.save
+      redirect_to "/companies/#{@company.id}"
+    else
+      @error_message = "入力内容が正しくありません"
+      render "edit"
+    end 
+  end
+
+
 
 private
 

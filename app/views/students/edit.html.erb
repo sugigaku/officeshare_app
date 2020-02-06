@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_with model: @student, url: students_path, local: true do |f| %>
+  <%= form_with model: @student, url: student_path, local: true do |f| %>
 
       <% if @error_message %>
         <div><%= @error_message %></div>
@@ -7,7 +7,7 @@
 
     <div class="form-group">
       <%= f.label :名前 %>
-      <%= f.text_field :name, class: "form-control", value: "<%= @student.name%>" %>
+      <%= f.text_field :name, class: "form-control" %>
     </div>
 
     <div class="form-group">

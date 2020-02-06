@@ -14,11 +14,12 @@
   
     <img src="<%="/user_images/#{@student.icon}"%>">
     <h2><%= @student.name %></h2>
+    
     <div class="text-left ml-5">
       <p>大学:<%= @student.college %></p>
       <p>学年:<%= @student.grade %></p>
       <p>プロフィール:<%= @student.profile %></p>
-
     </div>
+
     <a href=":id/edit">編集</a>
 </div>

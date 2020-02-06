@@ -53,6 +53,17 @@ before_action :set_student
     
   end
 
+  def update
+    @student.update(student_params)
+    if @student.save
+      redirect_to "/students/#{@student.id}"
+    else
+      @error_message = "入力内容が正しくありません"
+      render "edit"
+    end
+  end
+
+
   
   private
 
