@@ -24,6 +24,10 @@ class CompaniesController < ApplicationController
   def show
 
   end
+
+  def posts
+  end
+
   
   def new
     render layout: "application_not_login"
