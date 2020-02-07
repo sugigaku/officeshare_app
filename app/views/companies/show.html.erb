@@ -20,5 +20,5 @@
       <p>プロフィール:<%= @company.profile %></p>
     </div>
 
-    <a href=":id/edit">編集</a>
+     <%= link_to  "編集", edit_company_path(@company) %>
 </div>

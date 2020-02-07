@@ -1,24 +1,26 @@
 class PostsController < ApplicationController
 
     def index 
-      logger
      if params[:post]
-      if params[:post][:date]
+      @posts = Post.all
+      if params[:post][:date] && params[:post][:date]!= ""
         @posts = @posts.where(date: params[:post][:date]);
       end
       
-   #   if params[:post][:place]
-    #    @posts = @posts.where('place like ?', "%#{params[:post][:place]}%");
-   #   end
+      if params[:post][:place] && params[:post][:place]!= ""
+        @posts = @posts.where('place like ?', "%#{params[:post][:place]}%");
+      end
 
-    #  if params[:post][:mxpeople]
-     #   @posts = @posts.where("mxpeople > ?", params[:post][:mxpeople]);
-     # end
+      if params[:post][:mxpeople] && params[:post][:mxpeople]!= ""
+        @posts = @posts.where("mxpeople > ?", params[:post][:mxpeople]);
+      end
+
      else
       @posts = Post.all
      end
 
     end
+    
 
     def new
      @post=Post.new
@@ -40,6 +42,8 @@ class PostsController < ApplicationController
       end
 
     end
+
+   
 
     private
 

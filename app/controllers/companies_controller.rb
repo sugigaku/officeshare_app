@@ -26,6 +26,7 @@ class CompaniesController < ApplicationController
   end
 
   def posts
+    
   end
 
   
@@ -56,9 +57,9 @@ class CompaniesController < ApplicationController
 
 
   def update
-    @company.update(@company_params)
-    if @company.save
-      redirect_to "/companies/#{@company.id}"
+    @company = Company.find(@company.id)
+    if @company.update!(company_params)
+     # redirect_to "/companies/#{@company.id}"
     else
       @error_message = "入力内容が正しくありません"
       render "edit"

@@ -1,0 +1,15 @@
+<div class="container">
+
+  <ul>
+    <% @posts.eac do |p| %>
+    <li>
+     <h1><%= p.name%></h1>>
+     <p><%= p.place%></p><br>
+     <p><%= p.date%></p><br>
+     <p><%= p.mxpeople%></p><br>
+     <p><%= p.requirement%></p><br>
+     <p><%= p.detail%></p><br>
+    </li>
+  </ul>
+
+</div>
