@@ -19,6 +19,7 @@
     <div class="text-left ml-5">
       <p>プロフィール:<%= @company.profile %></p>
     </div>
-
+    <% if session[:company_id]%> <!--学生から隠すため-->
      <%= link_to  "編集", edit_company_path(@company) %>
+    <% end %>
 </div>
