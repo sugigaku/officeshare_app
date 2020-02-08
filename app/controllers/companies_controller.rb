@@ -22,7 +22,7 @@ class CompaniesController < ApplicationController
   end
   
   def show
-
+    @company = Company.find(id: session[:company_id])
   end
 
   def posts
