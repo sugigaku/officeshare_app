@@ -19,7 +19,7 @@
 
 <ul>
  <% @posts.each do |p| %>
-  <a href = "#"><li>
+  <a href = "/posts/<%= p.id %>"><li>
     <p><%= p.place%></p><br>
     <p><%= p.date%></p><br>
     <p><%= p.mxpeople%>人</p><br>

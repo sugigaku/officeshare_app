@@ -22,7 +22,7 @@ class CompaniesController < ApplicationController
   end
   
   def show
-    @company = Company.find(id: session[:company_id])
+    @company = Company.find(params[:id]) #studentからの訪問用
   end
 
   def posts

@@ -1,6 +1,17 @@
 <div class="container">
-<% if @company.posts? %>
-  <p>上手くいった！</p>
+<% if @company.posts.length >0 %>
+  <%= @company.posts.each do |p| %>
+    <ul>
+      <a href="/posts/<%=p.id %>">
+       <li>
+        <p><%= p.date%></p>
+        <p><%= p.place%></p>
+        <p><%= p.requirement%></p>
+       </li>
+      </a>
+    </ul>
+  <% end %>
+  <!--謎表記聞く-->
  
 <% else %>
 　<p>まだ掲載情報がありません</p>

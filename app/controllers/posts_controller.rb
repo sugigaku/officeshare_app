@@ -30,6 +30,8 @@ class PostsController < ApplicationController
     end
 
     def show
+      @post = Post.find(params[:id])
+      @company = Company.find_by(id: @post.company_id)
     end
 
     def create

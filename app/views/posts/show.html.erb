@@ -1,0 +1,17 @@
+<div class="container">
+ <p><%= @post.date %></p>
+ 
+ <p><%= @post.place %></p>
+
+ <p><%= @post.requirement %></p>
+
+ <p><%= @post.detail %></p>
+
+ <% if session[:student_id]%>
+  <p>掲載会社: <a href = "/companies/<%=@company.id%>"><%= @company.name %></a></p>
+ <% else %>
+  <p>掲載会社:<%= @company.name %></p>
+ <% end %>
+
+
+</div>
