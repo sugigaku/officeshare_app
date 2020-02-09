@@ -13,7 +13,8 @@
 
 <div class="container text-center">
   
-    <img src="<%="/user_images/#{@company.icon}"%>">
+    <!--<img src="<%="/user_images/#{@company.icon}"%>">-->
+    <%= image_tag  @company.icon.to_s %>
     <h2><%= @company.name %></h2>
     
     <div class="text-left ml-5">

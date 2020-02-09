@@ -83,7 +83,7 @@ private
 end
   
   def company_params
-    params.require(:company).permit(:name, :password, :place, :email, :profile)
+    params.require(:company).permit(:name, :password, :place, :email, :profile, :icon)
   end
 
 
