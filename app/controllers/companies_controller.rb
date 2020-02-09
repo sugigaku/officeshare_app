@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
 
   
   def create
-    @company = Company.new(company_params)
+    @company = Company.new(company_params_for_signup)
     @company.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
 
    if @company.save
@@ -59,7 +59,7 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(@company.id)
     if @company.update!(company_params)
-     # redirect_to "/companies/#{@company.id}"
+      redirect_to "/companies/#{@company.id}"
     else
       @error_message = "入力内容が正しくありません"
       render "edit"
@@ -78,10 +78,14 @@ private
   
  end
 
+ def company_params_for_signup
+  params.permit(:name, :password, :place, :email, :profile)
+end
   
   def company_params
-    params.permit(:name, :password, :place, :email, :profile)
+    params.require(:company).permit(:name, :password, :place, :email, :profile)
   end
+
 
 
 end

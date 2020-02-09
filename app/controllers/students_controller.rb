@@ -14,7 +14,7 @@ before_action :set_student
 
 
   def create
-    @student = Student.new(student_params)
+    @student = Student.new(student_params_for_signup)
     @student.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
 
    if @student.save
@@ -54,8 +54,8 @@ before_action :set_student
   end
 
   def update
-    @student.update(student_params)
-    if @student.save
+    @student = Student.find(@student.id)
+    if @student.update!(student_params)
       redirect_to "/students/#{@student.id}"
     else
       @error_message = "入力内容が正しくありません"
@@ -73,8 +73,12 @@ before_action :set_student
     end
   end
 
+  def student_params_for_signup
+    params.permit(:name, :email, :password, :college, :grade, :profile)
+  end
+
 
   def student_params
-    params.permit(:name, :email, :password, :college, :grade, :profile)
+    params.require(:student).permit(:name, :email, :password, :college, :grade, :profile)
   end
 end
