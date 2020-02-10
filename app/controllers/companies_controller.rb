@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
   
   def create
     @company = Company.new(company_params_for_signup)
-    @company.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
+    #@company.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
 
    if @company.save
      session[:company_id] = @company.id

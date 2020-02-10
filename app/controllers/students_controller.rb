@@ -15,7 +15,7 @@ before_action :set_student
 
   def create
     @student = Student.new(student_params_for_signup)
-    @student.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
+    #@student.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
 
    if @student.save
     session[:student_id] = @student.id
@@ -79,6 +79,6 @@ before_action :set_student
 
 
   def student_params
-    params.require(:student).permit(:name, :email, :password, :college, :grade, :profile)
+    params.require(:student).permit(:name, :email, :password, :college, :grade, :profile, :icon)
   end
 end
