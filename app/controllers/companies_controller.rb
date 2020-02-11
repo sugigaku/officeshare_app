@@ -9,14 +9,12 @@ class CompaniesController < ApplicationController
 
   
   def create
-    @company = Company.new(company_params_for_signup)
-    #@company.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
+    @company = Company.new(company_params)
 
    if @company.save
      session[:company_id] = @company.id
      redirect_to "/companies/#{@company.id}"
    else
-    @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
     render 'new'
    end
   end
@@ -31,8 +29,8 @@ class CompaniesController < ApplicationController
 
   
   def new
-    render layout: "application_not_login"
     @company=Company.new
+    render layout: "application_not_login"
   end
 
   def login_form 
@@ -58,10 +56,9 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(@company.id)
-    if @company.update!(company_params)
+    if @company.update(company_params)
       redirect_to "/companies/#{@company.id}"
     else
-      @error_message = "入力内容が正しくありません"
       render "edit"
     end 
   end
@@ -77,13 +74,9 @@ private
   else
      @company  
   end
-  
  end
-
- def company_params_for_signup
-  params.permit(:name, :password, :place, :email, :profile)
-end
   
+ 
   def company_params
     params.require(:company).permit(:name, :password, :place, :email, :profile, :icon)
   end

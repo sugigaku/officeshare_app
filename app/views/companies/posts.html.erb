@@ -1,6 +1,6 @@
 <div class="container">
 <% if @company.posts.length >0 %>
-  <%= @company.posts.each do |p| %>
+  <% @company.posts.each do |p| %>
     <ul>
       <a href="/posts/<%=p.id %>">
        <li>
