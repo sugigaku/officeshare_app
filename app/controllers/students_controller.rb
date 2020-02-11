@@ -3,9 +3,12 @@ class StudentsController < ApplicationController
 before_action :set_student
 
   def new
-    render layout: "application_not_login"
+    
     @student = Student.new
+    
+    render layout: "application_not_login"
   end
+
 
   def index
     @students = Students.all
@@ -14,14 +17,12 @@ before_action :set_student
 
 
   def create
-    @student = Student.new(student_params_for_signup)
-    #@student.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
+    @student = Student.new(student_params)
 
    if @student.save
     session[:student_id] = @student.id
     redirect_to "/students/#{@student.id}"
    else
-    @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
     render 'new'
    end
   end
@@ -55,10 +56,9 @@ before_action :set_student
 
   def update
     @student = Student.find(@student.id)
-    if @student.update!(student_params)
+    if @student.update(student_params)
       redirect_to "/students/#{@student.id}"
     else
-      @error_message = "入力内容が正しくありません"
       render "edit"
     end
   end
@@ -71,10 +71,6 @@ before_action :set_student
     if session[:student_id]
       @student = Student.find_by(id: session[:student_id])
     end
-  end
-
-  def student_params_for_signup
-    params.permit(:name, :email, :password, :college, :grade, :profile)
   end
 
 
