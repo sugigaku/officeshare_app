@@ -12,13 +12,15 @@
 
 <div class="container text-center">
   
-    <img src="<%="/user_images/#{@student.icon}"%>">
+    <!--<img src="<%="/user_images/#{@student.icon}"%>">-->
+    <%= image_tag @student.icon.to_s %>
     <h2><%= @student.name %></h2>
+    
     <div class="text-left ml-5">
       <p>大学:<%= @student.college %></p>
       <p>学年:<%= @student.grade %></p>
       <p>プロフィール:<%= @student.profile %></p>
-
     </div>
-    <a href=":id/edit">編集</a>
+
+    <%= link_to  "編集", edit_student_path(@student) %>
 </div>

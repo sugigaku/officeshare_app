@@ -15,10 +15,14 @@
 
 <div class="container text-center">
   
-    <img src="<%="/user_images/#{@company.icon}"%>">
+    <!--<img src="<%="/user_images/#{@company.icon}"%>">-->
+    <%= image_tag  @company.icon.to_s %>
     <h2><%= @company.name %></h2>
+    
     <div class="text-left ml-5">
       <p>プロフィール:<%= @company.profile %></p>
-
     </div>
+    <% if session[:company_id]%> <!--学生から隠すため-->
+     <%= link_to  "編集", edit_company_path(@company) %>
+    <% end %>
 </div>

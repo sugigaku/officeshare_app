@@ -9,8 +9,8 @@ class CompaniesController < ApplicationController
 
   
   def create
-    @company = Company.new(company_params)
-    @company.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
+    @company = Company.new(company_params_for_signup)
+    #@company.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
 
    if @company.save
      session[:company_id] = @company.id
@@ -26,6 +26,7 @@ class CompaniesController < ApplicationController
   end
 
   def posts
+    
   end
 
   
@@ -51,6 +52,21 @@ class CompaniesController < ApplicationController
   end
 
 
+  def edit
+  end
+
+
+  def update
+    @company = Company.find(@company.id)
+    if @company.update!(company_params)
+      redirect_to "/companies/#{@company.id}"
+    else
+      @error_message = "入力内容が正しくありません"
+      render "edit"
+    end 
+  end
+
+
 
 private
 
@@ -64,9 +80,12 @@ private
   
  end
 
+ def company_params_for_signup
+  params.permit(:name, :password, :place, :email, :profile)
+end
   
   def company_params
-    params.permit(:name, :password, :place, :email, :profile)
+    params.require(:company).permit(:name, :password, :place, :email, :profile, :icon)
   end
 
   def access_restriction
@@ -81,6 +100,7 @@ private
       end
     end
   end
+
 
 
 end

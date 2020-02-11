@@ -24,6 +24,7 @@ class PostsController < ApplicationController
      end
 
     end
+    
 
     def new
      @post=Post.new
@@ -47,6 +48,8 @@ class PostsController < ApplicationController
       end
 
     end
+
+   
 
     private
 
