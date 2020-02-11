@@ -1,7 +1,7 @@
 <div class="container">
 <% if @company.posts.length>0 %>
  <% @company.posts.each do |p| %>
-  <p><%= p.place%></p>
+  <p><a href = "/posts/<%= p.id %>"><%= p.place%></a></p>
  <% end %>
   
  

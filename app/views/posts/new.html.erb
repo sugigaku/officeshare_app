@@ -1,8 +1,10 @@
 <div class="container">
     <%= form_with model: @post, url: posts_path, local: true do |f| %>
     
-        <%if @error_message%>
-            <div><%= @error_message %></div>
+        <%if @post.errors.any? %>
+           <% @post.errors.full_messages.each do |e|%>
+                <p><%= e %></p>
+           <% end %> 
         <%end%>
 
         <div class="form-group">
@@ -16,7 +18,7 @@
         </div>
 
         <div class="form_group">
-            <%= f.label :利用可能人数%>
+            <%= f.label :最大人数%>
             <%= f.number_field :mxpeople, class: "form-control", placeholder: "利用可能人数" %>
         </div>
 

@@ -32,12 +32,11 @@ class PostsController < ApplicationController
     def create
       
       @post=Post.new(post_params)
-      if @post.save!
+      if @post.save
          #@company= Company.find_by(id: session[:company_id])
         # @post.company_id = @company.id
          redirect_to "/companies/#{session[:company_id]}"
       else
-        @error_message="エラー"
         render "new"
       end
 
