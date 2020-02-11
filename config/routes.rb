@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/companies/login_form', to:'companies#login_form'
   post '/companies/login', to:'companies#login'
+  get '/companies/posts', to: 'companies#posts'
   resources :companies
   
 

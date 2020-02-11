@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  before_action :set_company
+  before_action  :access_restriction, :set_company
 
   def index
     @companies = Company.all
@@ -22,8 +22,12 @@ class CompaniesController < ApplicationController
   end
   
   def show
-
+    @company = Company.find(params[:id]) #studentからの訪問用
   end
+
+  def posts
+  end
+
   
   def new
     render layout: "application_not_login"
@@ -52,8 +56,10 @@ private
 
  def set_company
 
-  if session[:company_id]
-    @company = Company.find_by(id: session[:company_id])
+  if @company.nil?
+     @company = Company.find_by(id: session[:company_id])
+  else
+     @company  
   end
   
  end
@@ -61,6 +67,19 @@ private
   
   def company_params
     params.permit(:name, :password, :place, :email, :profile)
+  end
+
+  def access_restriction
+    @url = request.referer
+    if @url ==nil
+      if session[:student_id]
+        redirect_to 'student_path'    
+      elsif session[:company_id]
+        redirect_to 'company_path'
+      else
+        redirect_to "/"  
+      end
+    end
   end
 
 

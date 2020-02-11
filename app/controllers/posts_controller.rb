@@ -1,7 +1,28 @@
 class PostsController < ApplicationController
 
     def index 
-     @posts=Posts.all
+      
+
+     if params[:post]
+      @posts = Post.all
+      if params[:post][:date] && params[:post][:date]!= ""
+        @posts = @posts.where(date: params[:post][:date]);
+        
+      end
+      
+      if params[:post][:place] && params[:post][:place]!= ""
+        @posts = @posts.where('place like ?', "%#{params[:post][:place]}%");
+        
+      end
+
+      if params[:post][:mxpeople] && params[:post][:mxpeople]!= ""
+        @posts = @posts.where("mxpeople >= ?", params[:post][:mxpeople]);
+           
+      end
+     else
+      @posts = Post.all
+     end
+
     end
 
     def new
@@ -9,12 +30,12 @@ class PostsController < ApplicationController
     end
 
     def show
-
+      @post = Post.find(params[:id])
+      @company = Company.find_by(id: @post.company_id)
     end
 
     def create
-      logger.debug post_params
-      logger.debug 'Aaaaaaaaaaaaa'
+      
       @post=Post.new(post_params)
       if @post.save!
          #@company= Company.find_by(id: session[:company_id])
