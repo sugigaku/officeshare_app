@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  before_action  :access_restriction, :set_company
+  before_action  :set_company #:access_restriction, 
 
   def index
     @companies = Company.all
