@@ -1,9 +1,24 @@
 class ApplicationController < ActionController::Base
- # before_action :access_restriction
+ before_action :set_current_user
   
   def set_current_user
-    @current_user = User.find_by(id: session[:user_id])
+    if session[:student_id]
+      if @student.nil?
+        @student = Student.find_by(id: session[:student_id])
+      else
+        @student
+      end
+    elsif session[:company_id]
+      if @company.nil?
+        @company = Company.find_by(id: session[:company_id])
+      else
+        @company
+      end
+    else
+      return
+    end
   end
+
 
   def authenticate_user
     if @current_user==nil

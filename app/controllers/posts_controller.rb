@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
     def show
       @post = Post.find(params[:id])
-      @company = Company.find_by(id: @post.company_id)
+      @posting_company = Company.find_by(id: @post.company_id)
     end
 
     def create
@@ -69,6 +69,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:place, :date, :mxpeople, :requirement, :detail).merge({:company_id => session[:company_id]})
     end
 
+    
 
 
 end

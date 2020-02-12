@@ -8,10 +8,10 @@
  <p><%= @post.detail %></p>
 
  <% if session[:student_id]%>
-  <p>掲載会社: <a href = "/companies/<%=@company.id%>"><%= @company.name %></a></p>
+  <p>掲載会社: <a href = "/companies/<%=@posting_company.id%>"><%= @posting_company.name %></a></p>
  <% else %>
-  <p>掲載会社:<%= @company.name %></p>
-    <% if session[:company_id] == @company.id %>
+  <p>掲載会社:<%= @posting_company.name %></p>
+    <% if session[:company_id] == @posting_company.id %>
         <p><a href ="<%= @post.id%>/edit">編集</a></p>
     <% end %>
  <% end %>

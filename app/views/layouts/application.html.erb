@@ -22,14 +22,13 @@
         <div class="collapse navbar-collapse justify-content-end" id="navmenu2">
           <div class="navbar-nav">
 
-            <a href="" class="nav-item nav-link">検索する</a>
+            <%= link_to "検索する", posts_path %>
 
-            <a href="" class="nav-item nav-link">マイページ</a>
+            <%= link_to "マイページ", student_path(@student.id) %>
 
             <a href="" class="nav-item nav-link">お問い合せ</a>
 
-            <a href="/" class="nav-item nav-link">ログアウト</a>
-          </div>
+            <%=link_to "ログアウト","/" %>
         </div>
          <% elsif session[:company_id] %>
          <%=session[:company_id] %>
@@ -38,9 +37,8 @@
         <div class="collapse navbar-collapse justify-content-end" id="navmenu2">
           <div class="navbar-nav">
 
-            <a href="" class="nav-item nav-link">検索する</a>
-
-            <%= link_to "マイページ" %>
+            <%= link_to "検索する", posts_path %>
+            <%= link_to "マイページ", company_path(@company.id) %>
             
             <a href="" class="nav-item nav-link">お問い合せ</a>
 
