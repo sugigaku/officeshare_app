@@ -10,19 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ 
  *= require_self
  */
+ *= require_tree .
  *{
    margin: 0;
    padding: 0;
  }
-header{
-  min-width: 500px;
-  width:100%;
-  height:100px;
-  background-color: orange;
-}
+
+
+
 ul{
   display:flex;
   justify-content: flex-end;
@@ -30,11 +28,57 @@ ul{
   height: 100px;
   text-align: center;
 }
-body{
-  background-color: rgb(252, 236, 223);
-}
+
 tbody {
   display: table-row-group;
   vertical-align: middle;
   border-color: inherit;
+}
+.cover-img{
+  background-image: url("/images/topimage1.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+
+.example{
+  position: relative;
+}
+.example img{
+  width: 100%;
+}
+.example h1{
+  position: absolute;
+  color: aliceblue;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  font-weight: bold;
+}
+.example p{
+  position: absolute;
+  color: aliceblue;
+  top: 70%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
+
+@media (max-width: 992px){
+  
+}
+@media (max-width: 768px){
+  
+}
+@media (max-width: 576px){
+   .example h1{
+     font-size: 200%;
+   }
 }
