@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_014125) do
+ActiveRecord::Schema.define(version: 2020_02_23_014831) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2020_02_03_014125) do
     t.string "icon"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "user_type", default: false, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "place"
     t.date "date"
@@ -32,6 +41,15 @@ ActiveRecord::Schema.define(version: 2020_02_03_014125) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "company_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_rooms_on_post_id"
+    t.index ["student_id"], name: "index_rooms_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -62,4 +80,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_014125) do
     t.string "userid"
   end
 
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "rooms", "posts"
+  add_foreign_key "rooms", "students"
 end

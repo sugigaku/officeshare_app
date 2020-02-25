@@ -63,6 +63,10 @@ class CompaniesController < ApplicationController
     end 
   end
 
+  def rooms_index
+    @rooms = Room.where(post_id: @company.posts.ids)
+  end
+
 
 
 private

@@ -1,0 +1,12 @@
+<div class="container">
+ <ul>
+ <% @rooms.each do |room| %>
+  <a href = "/posts/<%= room.post_id %>"><li>
+    <p><%= room.post.place%></p><br>
+    <p><%= room.post.date%></p><br>
+    <p><%= room.post.mxpeople%>人</p><br>
+  </li></a>
+  <hr>
+  <% end %>
+</ul>
+</div>

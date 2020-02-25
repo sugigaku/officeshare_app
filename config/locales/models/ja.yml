@@ -1,0 +1,37 @@
+ja:
+  activerecord:
+    models:
+      student: 学生
+      company: 企業
+      post: 募集
+      room: ルーム
+      message: メッセージ
+    attributes:
+      student:
+        name: 名前
+        college: 大学
+        grade: 学年
+        password: パスワード
+        profile: プロフィール
+        icon: アイコン
+        email: メールアドレス
+
+      company:
+        name: 会社名
+        password: パスワード
+        profile: プロフィール
+        place: 場所
+        email: メールアドレス
+        icon:  アイコン
+
+      post:
+        place: 場所
+        date: 日付
+        mxpeople: 最大人数
+        requirement: 条件
+        detail: 詳細
+
+      message: 
+        content: メッセージ 
+          
+

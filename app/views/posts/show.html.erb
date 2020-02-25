@@ -9,6 +9,11 @@
 
  <% if session[:student_id]%>
   <p>掲載会社: <a href = "/companies/<%=@posting_company.id%>"><%= @posting_company.name %></a></p>
+  <%= form_with model: @room, url: rooms_path, local: true do |f| %>
+    <input type="hidden" name="post_id" value="<%= @post.id %>">
+   <%= f.submit %>
+  <% end %>
+
  <% else %>
   <p>掲載会社:<%= @posting_company.name %></p>
     <% if session[:company_id] == @posting_company.id %>

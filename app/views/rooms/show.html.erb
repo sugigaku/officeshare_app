@@ -1,0 +1,35 @@
+<h1>Chat room</h1>
+
+  <% @messages.each do |m|%>
+    <% if m.user_type==true %>
+      <p><%= @room.student.name %>:<%= m.content %></p>
+    <% else%>
+      <p><%= @room.post.company.name %>:<%= m.content %></p>
+    <% end%>  
+  <% end %>
+
+  <% if @message.errors.any? %>
+        <% @message.errors.full_messages.each do |e|%>
+          <p><%= e %></p>
+        <% end %>
+  <% end %>
+
+  <% if session[:student_id]%>
+      <%= form_with model: @message, url: messages_path, local: true do |f| %>
+      <%= label_tag :content, 'Say something:' %>
+      <%= f.text_field :content, class: "form-control" %>
+      <%= f.hidden_field :user_type, :value => true %>
+      <%= f.hidden_field :room_id, :value => @room.id %>
+      
+      <%= f.submit %>
+      <% end %>
+  <% else %>    
+     <%= form_with model: @message, url: messages_path, local: true do |f| %>
+      <%= label_tag :content, 'Say something:' %>
+      <%= f.text_field :content, class: "form-control" %>
+      <%= f.hidden_field :user_type, :value => false %>
+      <%= f.hidden_field :room_id, :value => @room.id %>
+      
+      <%= f.submit %>
+      <% end %>
+  <% end %>

@@ -63,6 +63,15 @@ before_action :set_student
     end
   end
 
+  def rooms_index
+    @rooms = Room.where(student_id: @student.id)
+  end
+
+  def application_posts
+    @rooms = Room.where(student_id: @student.id)
+    
+  end
+
 
   
   private
