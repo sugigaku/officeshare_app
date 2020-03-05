@@ -1,10 +1,11 @@
+require "date"
 class PostsController < ApplicationController
 
     def index 
-      
+      today = Date.today
 
      if params[:post]
-      @posts = Post.all
+      @posts = Post.where("date > ?", today)
       if params[:post][:date] && params[:post][:date]!= ""
         @posts = @posts.where(date: params[:post][:date]);
         
@@ -20,7 +21,7 @@ class PostsController < ApplicationController
            
       end
      else
-      @posts = Post.all
+      @posts = Post.where("date > ?", today)
      end
 
     end
@@ -66,7 +67,7 @@ class PostsController < ApplicationController
     private
 
     def post_params
-      params.require(:post).permit(:place, :date, :mxpeople, :requirement, :detail).merge({:company_id => session[:company_id]})
+      params.require(:post).permit(:place, :date, :mxpeople, :requirement, :detail, :office_image).merge({:company_id => session[:company_id]})
     end
 
     

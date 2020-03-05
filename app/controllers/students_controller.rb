@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
 before_action :set_student
 
   def new
-    
+    session[:student_id]=nil
     @student = Student.new
     
     render layout: "application_not_login"
@@ -35,6 +35,7 @@ before_action :set_student
  
 
   def login_form 
+    session[:student_id]=nil
     render layout: "application_not_login"
   end
 

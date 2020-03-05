@@ -9,4 +9,6 @@ validates :mxpeople, presence: true
 validates :requirement, presence: true
 validates :detail, presence: true
 
+mount_uploader :office_image,  OfficeImageUploader
+
 end

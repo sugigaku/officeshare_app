@@ -21,12 +21,17 @@
 
 
 
+ a, a:visited, a:focus, a:hover {
+   color: rgb(230, 115, 16);
+  text-decoration: none;
+}  
+
+.btn{
+  padding: 0.5em;
+}
+
 ul{
-  display:flex;
-  justify-content: flex-end;
   list-style: none;
-  height: 100px;
-  text-align: center;
 }
 
 tbody {
@@ -34,6 +39,15 @@ tbody {
   vertical-align: middle;
   border-color: inherit;
 }
+.navbar-dark .navbar-toggler {
+  border-color: rgba(0,0,0,0);
+}
+/*エラ〜メッセージ*/
+.error_message{
+  color: rgb(255, 82, 82);
+  text-align: center;
+}
+/*--topページ--*/
 .cover-img{
   background-image: url("/images/topimage1.jpg");
   height: 100%;
@@ -62,7 +76,7 @@ tbody {
 .example p{
   position: absolute;
   color: aliceblue;
-  top: 70%;
+  top: 60%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -70,15 +84,312 @@ tbody {
   margin:0;
   padding:0;
 }
+.btn-success {
+  position: absolute;
+  top: 65%;
+  left: 44%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
+.btn-info{
+  position: absolute;
+  top: 65%;
+  left: 56%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
+/*新規登録・フォーム*/
+.btn{
+  justify-content: center;
+}
+/*selectページ*/
+.select-card{
+  color: rgb(105, 112, 123);
+}
+.select-card > .card{
+  width: 25vw;
+  max-width: 250px;
+}
+/*showページ*/
+.show_list{
+  padding-inline-start: 0;
 
-@media (max-width: 992px){
+}
+.show_list a{
+  color: black;
+}
+.icon img{
+  border-radius: 50%;
+  border: solid 1px rgb(218, 218, 218);
+  max-width: 300px;
+  width: 40vw;
+  height: auto;
+}
+/*post検索ページ*/
+.font-awesome {
+  display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.post_image img{
+  max-width: 200px;
+  width: 200%;
+  height: auto;
+}
+/*roomのshowページ*/
+.remark {
+  padding: 10px 10px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: right;
+  font-size: 14px;
   
 }
+
+/*相手のコメント*/
+.collocutor {
+  width: 100%;
+  margin: 0 0;
+  overflow: hidden;
+}
+
+.collocutor .faceicon {
+  float: left;
+  margin-right: -50px;
+  width: 40px;
+}
+
+.collocutor .faceicon img{
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+.collocutor .chatting {
+  width: 100%;
+  text-align: left;
+}
+.comment {
+  display: inline-block;
+  position: relative; 
+  margin: 0 0 0 50px;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #c3e5ff;
+}
+
+
+.comment p {
+  margin: 0;
+  padding: 0;
+}
+.comment:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px; 
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #c3e5ff;
+  /*-webkit-transform: rotate(35deg);
+  transform: rotate(35deg);*/
+}
+.collocutor_created_at p{
+  font-size: 10px;
+  text-align: left;
+}
+
+/*自分のコメント*/
+.mycomment {
+  display: inline-block;
+  position: relative; 
+  margin: 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
+  font-size: 15px:
+}
+.mycomment p {
+  margin: 0;
+  padding: 0;
+}
+
+.mycomment p:after {
+  content: "";
+  position: absolute;
+  top: 3px; 
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #edf1ee;
+  
+}
+.created_at{
+  font-size: 10px;
+}
+
+
+@media (max-width: 992px){
+  .display-4{
+    font-size: 300%;
+  }
+  .display-3{
+    font-size: 300%;
+  }
+  .btn{
+    font-size: 105%;
+  }
+}
 @media (max-width: 768px){
+  .display-3{
+    font-size: 250%;
+  }
+  .btn-success {
+    left: 42%;
+  }
+  .btn-info{
+    left: 58%;
+  }
+
   
 }
 @media (max-width: 576px){
+  /*ナビバー*/
+  .navbar-nav a{
+    font-size: 80%;
+  }
+  /*エラ〜メッセージ*/
+.error_message{
+  font-size: 80%;
+}
+  /*トップページ*/
    .example h1{
      font-size: 200%;
    }
+   .display-3{
+     font-size: 200%;
+   }
+   .subtitle{
+     font-size: 80%;
+   }
+   .btn{
+    font-size: 80%;
+  }
+  .btn-sucess {
+    left: 38%;
+  }
+  .btn-info{
+    left: 62%;
+  }
+  .lead{
+    font-size: 90%;
+  }
+  /*form-control*/
+  input.form-control{
+    font-size: 10px;
+  }
+  textarea.form-control{
+    font-size: 10px;
+  }
+  /*ボタン*/
+  .btn{
+    font-size: 6px;
+  }
+  /*ラベル*/
+  label {
+    font-size: 80%;
+  }
+  /*マイページ*/
+  .show_list li{
+    font-size: 80%;
+  }
+  .user_name{
+    font-size: 150%;
+  }
+  .profile p{
+    font-size: 80%;
+  }
+  .edit_link{
+    font-size: 80%;
+  }
+   /*roomのshowページ*/
+  .remark {
+    padding: 5px 5px;
+    font-size: 12px;
+  }
+  .collocutor .faceicon {
+    margin-right: -50px;
+    width: 30px;
+  }
+  .comment {
+    margin: 0 0 0 40px;
+    padding: 7px;
+  }
+
+}
+@media (max-width: 320px){
+  /*フォームデザイン*/
+  label {
+    font-size: 60%;
+    margin-bottom: 0;
+  }
+  .form-group{
+    margin-bottom: 0;
+  }
+  /*エラーメッセージ*/
+  .error_message{
+    font-size: 60%;
+  }
+  /*マイページ*/
+  .edit_link{
+    font-size: 50%;
+  }
+  /*roomのshowページ*/
+  .collocutor_name h3{
+    font-size: 20px;
+  }
+  .remark {
+    padding: 3px 3px;
+    font-size: 8px;
+  }
+  .collocutor .faceicon {
+    margin-right: -30px;
+    width: 25px;
+  }
+  .comment {
+    margin: 0 0 0 30px;
+    padding: 5px;
+  }
+  .comment:after {
+    top: 2px; 
+    left: -10px;
+    border: 5px solid transparent;
+    border-right: 9px solid #c3e5ff;
+  }
+    .mycomment {
+      padding: 5px;
+    }
+    .mycomment p:after {
+      content: "";
+      position: absolute;
+      top: 3px; 
+      right: -14px;
+      border: 8px solid transparent;
+      border-left: 9px solid #edf1ee;
+    }
+    /*マイページ*/
+    .edit_link{
+      font-size: 50%;
+    }
+    
 }

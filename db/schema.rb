@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_014831) do
+ActiveRecord::Schema.define(version: 2020_03_01_004941) do
+
+  create_table "add_office_image_to_posts", force: :cascade do |t|
+    t.string "office_image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -41,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_014831) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "company_id"
+    t.string "office_image"
   end
 
   create_table "rooms", force: :cascade do |t|

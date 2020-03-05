@@ -1,4 +1,5 @@
 <div class="container">
+<% if @rooms.length>0 %>
  <ul>
  <% @rooms.each do |room| %>
   <a href = "/posts/<%= room.post_id %>"><li>
@@ -9,4 +10,7 @@
   <hr>
   <% end %>
 </ul>
+<% else %>
+<p class="error_message mt-4">まだ応募していません</p>
+<% end %>
 </div>

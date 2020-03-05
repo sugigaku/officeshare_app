@@ -29,11 +29,13 @@ class CompaniesController < ApplicationController
 
   
   def new
+    session[:company_id]=nil
     @company=Company.new
     render layout: "application_not_login"
   end
 
   def login_form 
+    session[:company_id]=nil
     render layout: "application_not_login"
   end
 
@@ -45,7 +47,7 @@ class CompaniesController < ApplicationController
       redirect_to "/companies/#{@company.id}"
     else
       @error_message = "名前またはパスワードが間違っています"
-      render "login_form"
+      render "login_form" 
     end
   end
 
@@ -85,19 +87,7 @@ private
     params.require(:company).permit(:name, :password, :place, :email, :profile, :icon)
   end
 
-  def access_restriction
-    @url = request.referer
-    if @url ==nil
-      if session[:student_id]
-        redirect_to 'student_path'    
-      elsif session[:company_id]
-        redirect_to 'company_path'
-      else
-        redirect_to "/"  
-      end
-    end
-  end
-
+ 
 
 
 end

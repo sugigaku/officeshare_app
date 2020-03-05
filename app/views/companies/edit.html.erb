@@ -4,7 +4,7 @@
 
    <% if @company.errors.any? %>
         <% @company.errors.full_messages.each do |e|%>
-          <p><%= e %></p>
+          <p class="error_message"><%= e %></p>
         <% end %>
    <% end %>
 
@@ -13,34 +13,34 @@
     <%= f.text_field :name, class: "form-control" %>
    </div>
 
-   <div>
+   <div class="form-group">
     <%= f.label :パスワード%>
     <%= f.password_field :password, class: "form-control", placeholder: "パスワード" %>
    </div>
 
-    <div>
+    <div class="form-group">
      <%= f.label :場所%>
      <%= f.text_field :place, class: "form-control" %>
     </div>
 
-    <div>
+    <div class="form-group">
      <%= f.label :メールアドレス%>
      <%= f.text_field :email, class: "form-control" %>
     </div>
 
-    <div>
+    <div class="form-group">
      <%= f.label :プロフィール%>
      <%= f.text_field :profile, class: "form-control" %>
     </div>
 
    　
-    <div>
+    <div class="form-group">
       <%= f.label :アイコン画像%>
       <%= f.file_field :icon, class: "form-control" %>
     </div>
 
 
-    <%= f.submit %>
+    <%= f.submit "更新する", class: "btn btn-outline-dark" %>
 
  <% end %>  
 </div>

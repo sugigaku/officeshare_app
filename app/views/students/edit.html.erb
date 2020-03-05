@@ -3,7 +3,7 @@
 
       <% if @student.errors.any? %>
         <% @student.errors.full_messages.each do |e|%>
-          <p><%= e %></p>
+          <p class="error_message"><%= e %></p>
         <% end %>
       <% end %>
 
@@ -42,6 +42,6 @@
       <%= f.file_field :icon, class: "form-control" %>
     </div>
 
-    <%= f.submit %>
+    <%= f.submit "更新する", class: "btn btn-outline-dark" %>
   <% end %>
 </div>

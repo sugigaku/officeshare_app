@@ -1,9 +1,11 @@
 <div class="container">
+<h4 class="text-center mt-4">新規登録</h4>
+
   <%= form_with model: @student, url: students_path, local: true do |f| %>
 
       <% if @student.errors.any? %>
         <% @student.errors.full_messages.each do |e|%>
-          <p><%= e %></p>
+          <p class="error_message"><%= e %></p>
         <% end %>
       <% end %>
 
@@ -37,6 +39,6 @@
       <%= f.text_area :profile, class: "form-control", placeholder: "プロフィール", row: 6 %>
     </div>
 
-    <%= f.submit %>
+    <%= f.submit '登録', class: 'btn btn-dark'%>
   <% end %>
 </div>

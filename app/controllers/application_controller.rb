@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
  before_action :set_current_user
+ #before_action :access_restriction
   
   def set_current_user
     if session[:student_id]
@@ -25,6 +26,20 @@ class ApplicationController < ActionController::Base
       redirect_to("/login")
     end
   end
+
+  def access_restriction
+    @url = request.referer
+    if @url ==nil
+      if @student
+        redirect_to student_path(@student)    
+      elsif @company
+        redirect_to company_path(@company)
+      else
+        redirect_to "/users/login_select"  
+      end
+    end
+  end
+
  
   
   
