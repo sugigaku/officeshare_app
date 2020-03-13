@@ -6,12 +6,12 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.new(student_id: session[:student_id], post_id: params[:post_id])
+    @room = Room.new(student_id: @student.id, post_id: params[:post_id])
     if @room.save
       redirect_to room_path(@room.id)
     else 
-      @eroom = Room.where(student_id: session[:student_id], post_id: params[:post_id])
-      redirect_to room_path(@eroom.id)
+      @eroom = Room.find_by(student_id: @student.id, post_id: params[:post_id])
+      redirect_to "/rooms/#{@eroom.id}"
     end
 
   end

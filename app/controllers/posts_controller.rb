@@ -1,30 +1,31 @@
 require "date"
 class PostsController < ApplicationController
 
-    def index 
-      today = Date.today
+  def index 
+    today = Date.today
 
-     if params[:post]
-      @posts = Post.where("date > ?", today)
-      if params[:post][:date] && params[:post][:date]!= ""
-        @posts = @posts.where(date: params[:post][:date]);
-        
-      end
+   if params[:post]
+    @posts = Post.where("date > ?", today).order(:date)
+    if params[:post][:date] && params[:post][:date]!= ""
+      @posts = @posts.where(date: params[:post][:date]);
       
-      if params[:post][:place] && params[:post][:place]!= ""
-        @posts = @posts.where('place like ?', "%#{params[:post][:place]}%");
-        
-      end
-
-      if params[:post][:mxpeople] && params[:post][:mxpeople]!= ""
-        @posts = @posts.where("mxpeople >= ?", params[:post][:mxpeople]);
-           
-      end
-     else
-      @posts = Post.where("date > ?", today)
-     end
-
     end
+    
+    if params[:post][:place] && params[:post][:place]!= ""
+      @posts = @posts.where('place like ?', "%#{params[:post][:place]}%");
+      
+    end
+
+    if params[:post][:mxpeople] && params[:post][:mxpeople]!= ""
+      @posts = @posts.where("mxpeople >= ?", params[:post][:mxpeople]);
+         
+    end
+   else
+    @posts = Post.where("date > ?", today).order(:date)
+   end
+
+  end
+
     
 
     def new

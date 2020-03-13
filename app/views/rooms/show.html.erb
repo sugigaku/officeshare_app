@@ -63,7 +63,7 @@
  
  <div class="collocutor_name">
    <h3 class="text-center"><a href="/students/<%= @room.student.id %>"><%= @room.student.name%></a></h3>
- </div>>
+ </div>
  
 
 
@@ -114,7 +114,7 @@
             <%= f.hidden_field :user_type, :value => false %>
             <%= f.hidden_field :room_id, :value => @room.id %>
             
-            <%= f.submit %>
+            <%= f.submit '送信', class: "btn btn-outline-dark" %>
       <% end %>
 
 <% end %>

@@ -19,12 +19,18 @@
    padding: 0;
  }
 
+hr{
+  border: solid 1px rgb(177, 177, 177);
+  width: 100%;
+}
 
-
- a, a:visited, a:focus, a:hover {
-   color: rgb(230, 115, 16);
+ a, a:visited, a:focus{
+   color: rgb(107, 215, 255);
   text-decoration: none;
 }  
+a:hover {
+  opacity: 0.7;
+}
 
 .btn{
   padding: 0.5em;
@@ -33,8 +39,11 @@
 ul{
   list-style: none;
 }
-
+body{
+  padding: 0 0;
+}
 tbody {
+  
   display: table-row-group;
   vertical-align: middle;
   border-color: inherit;
@@ -48,20 +57,18 @@ tbody {
   text-align: center;
 }
 /*--topページ--*/
-.cover-img{
-  background-image: url("/images/topimage1.jpg");
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-}
 
-.example{
+.top-image{
   position: relative;
+  margin: 0 15px 0 –15px;
+  padding: 0 0;
+  min-width: 250px;
 }
-.example img{
+.top-image img{
   width: 100%;
+  
 }
-.example h1{
+.top-image h1{
   position: absolute;
   color: aliceblue;
   top: 50%;
@@ -73,7 +80,7 @@ tbody {
   padding:0;
   font-weight: bold;
 }
-.example p{
+.subtitle{
   position: absolute;
   color: aliceblue;
   top: 60%;
@@ -84,7 +91,7 @@ tbody {
   margin:0;
   padding:0;
 }
-.btn-success {
+.new-btn {
   position: absolute;
   top: 65%;
   left: 44%;
@@ -94,7 +101,7 @@ tbody {
   margin:0;
   padding:0;
 }
-.btn-info{
+.login-btn{
   position: absolute;
   top: 65%;
   left: 56%;
@@ -104,7 +111,7 @@ tbody {
   margin:0;
   padding:0;
 }
-/*新規登録・フォーム*/
+/*新規登録・フォーム　　　　　←これ多分いらない、要確認*/
 .btn{
   justify-content: center;
 }
@@ -132,19 +139,25 @@ tbody {
   height: auto;
 }
 /*post検索ページ*/
-.font-awesome {
-  display: inline-block;
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+.post{
+  height: 300px;
+}
+.post_image{
+  height: 270px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /*左右中央揃え*/
+  align-items: center;     /*上下中央揃え*/
 }
 .post_image img{
-  max-width: 200px;
-  width: 200%;
-  height: auto;
+  
+  max-width: 100%;
+  max-height: 270px;
+}
+.post_body{
+  display: flex;
+  align-items: center;     /*上下中央揃え*/
+
 }
 /*roomのshowページ*/
 .remark {
@@ -240,6 +253,7 @@ tbody {
 
 
 @media (max-width: 992px){
+  
   .display-4{
     font-size: 300%;
   }
@@ -249,21 +263,24 @@ tbody {
   .btn{
     font-size: 105%;
   }
-}
+ 
 @media (max-width: 768px){
   .display-3{
     font-size: 250%;
   }
-  .btn-success {
+  .new-btn {
     left: 42%;
   }
-  .btn-info{
+  .login-btn{
     left: 58%;
   }
-
+ 
   
 }
 @media (max-width: 576px){
+  .flexible-fontsize{
+    font-size: 80%;
+  }
   /*ナビバー*/
   .navbar-nav a{
     font-size: 80%;
@@ -273,22 +290,25 @@ tbody {
   font-size: 80%;
 }
   /*トップページ*/
-   .example h1{
-     font-size: 200%;
-   }
-   .display-3{
+   .top-image h1{
      font-size: 200%;
    }
    .subtitle{
-     font-size: 80%;
+    font-size: 80%;
+    top: 60%;
+    
+  }
+   .display-3{
+     font-size: 200%;
    }
+   
    .btn{
     font-size: 80%;
   }
-  .btn-sucess {
+  .new-btn {
     left: 38%;
   }
-  .btn-info{
+  .login-btn{
     left: 62%;
   }
   .lead{
@@ -316,12 +336,22 @@ tbody {
   .user_name{
     font-size: 150%;
   }
-  .profile p{
-    font-size: 80%;
+  /*post検索ページ*/
+  .post_image{
+    height: 180px;    
   }
-  .edit_link{
-    font-size: 80%;
+  
+  .post_image img{
+    width: 90%;
+    max-height: 180px;
   }
+  .post_body{
+    display: initial;
+    justify-content: initial; 
+    align-items: initial;     
+  
+  }
+  
    /*roomのshowページ*/
   .remark {
     padding: 5px 5px;
@@ -338,6 +368,9 @@ tbody {
 
 }
 @media (max-width: 320px){
+  .flexible-fontsize{
+    font-size: 70%;
+  }
   /*フォームデザイン*/
   label {
     font-size: 60%;
@@ -350,9 +383,21 @@ tbody {
   .error_message{
     font-size: 60%;
   }
-  /*マイページ*/
-  .edit_link{
-    font-size: 50%;
+  /*トップページ*/
+  .top-image h1{
+    font-size: 130%;
+    top: 40%;
+  }
+  .subtitle{
+    font-size: 60%;
+    top: 53%;
+    
+  }
+  .new-btn{
+    top: 60%;
+  }
+  .login-btn{
+    top: 60%;
   }
   /*roomのshowページ*/
   .collocutor_name h3{
@@ -387,9 +432,7 @@ tbody {
       border: 8px solid transparent;
       border-left: 9px solid #edf1ee;
     }
-    /*マイページ*/
-    .edit_link{
-      font-size: 50%;
-    }
+    
+    
     
 }
