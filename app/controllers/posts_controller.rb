@@ -24,6 +24,7 @@ class PostsController < ApplicationController
      end
 
     end
+    
 
     def new
      @post=Post.new
@@ -31,22 +32,36 @@ class PostsController < ApplicationController
 
     def show
       @post = Post.find(params[:id])
-      @company = Company.find_by(id: @post.company_id)
+      @posting_company = Company.find_by(id: @post.company_id)
     end
 
     def create
       
       @post=Post.new(post_params)
-      if @post.save!
+      if @post.save
          #@company= Company.find_by(id: session[:company_id])
         # @post.company_id = @company.id
          redirect_to "/companies/#{session[:company_id]}"
       else
-        @error_message="エラー"
         render "new"
       end
 
     end
+
+    def edit
+      @post = Post.find(params[:id])
+    end
+
+    def update
+      @post = Post.find(params[:id])
+      if @post.update(post_params)
+        redirect_to "/companies/#{@post.company_id}"
+      else
+        render "edit"
+      end 
+  
+    end
+   
 
     private
 
@@ -54,6 +69,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:place, :date, :mxpeople, :requirement, :detail).merge({:company_id => session[:company_id]})
     end
 
+    
 
 
 end

@@ -4,10 +4,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <title>みんなのへや</title>
   </head>
   <body>
@@ -22,14 +24,13 @@
         <div class="collapse navbar-collapse justify-content-end" id="navmenu2">
           <div class="navbar-nav">
 
-            <a href="" class="nav-item nav-link">検索する</a>
+            <%= link_to "検索する", posts_path %>
 
-            <a href="" class="nav-item nav-link">マイページ</a>
+            <%= link_to "マイページ", student_path(@student.id) %>
 
             <a href="" class="nav-item nav-link">お問い合せ</a>
 
-            <a href="/" class="nav-item nav-link">ログアウト</a>
-          </div>
+            <%=link_to "ログアウト","/" %>
         </div>
          <% elsif session[:company_id] %>
          <%=session[:company_id] %>
@@ -38,9 +39,8 @@
         <div class="collapse navbar-collapse justify-content-end" id="navmenu2">
           <div class="navbar-nav">
 
-            <a href="" class="nav-item nav-link">検索する</a>
-
-            <%= link_to "マイページ" %>
+            <%= link_to "検索する", posts_path %>
+            <%= link_to "マイページ", company_path(@company.id) %>
             
             <a href="" class="nav-item nav-link">お問い合せ</a>
 

@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  before_action  :access_restriction, :set_company
+  #before_action  :set_company #:access_restriction, 
 
   def index
     @companies = Company.all
@@ -10,13 +10,11 @@ class CompaniesController < ApplicationController
   
   def create
     @company = Company.new(company_params)
-    @company.icon = "user_default.png" # TODO: ここも本当ならおかしいけど後で直す
 
    if @company.save
      session[:company_id] = @company.id
      redirect_to "/companies/#{@company.id}"
    else
-    @error_message="入力されたユーザーIDが既に使用されているまたはパスワードが入力されていないため登録できません"
     render 'new'
    end
   end
@@ -26,12 +24,13 @@ class CompaniesController < ApplicationController
   end
 
   def posts
+    
   end
 
   
   def new
-    render layout: "application_not_login"
     @company=Company.new
+    render layout: "application_not_login"
   end
 
   def login_form 
@@ -51,6 +50,20 @@ class CompaniesController < ApplicationController
   end
 
 
+  def edit
+  end
+
+
+  def update
+    @company = Company.find(@company.id)
+    if @company.update(company_params)
+      redirect_to "/companies/#{@company.id}"
+    else
+      render "edit"
+    end 
+  end
+
+
 
 private
 
@@ -61,12 +74,11 @@ private
   else
      @company  
   end
-  
  end
-
   
+ 
   def company_params
-    params.permit(:name, :password, :place, :email, :profile)
+    params.require(:company).permit(:name, :password, :place, :email, :profile, :icon)
   end
 
   def access_restriction
@@ -81,6 +93,7 @@ private
       end
     end
   end
+
 
 
 end
