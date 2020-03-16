@@ -12,13 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_03_01_004941) do
 
-  create_table "add_office_image_to_posts", force: :cascade do |t|
-    t.string "office_image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "companies", force: :cascade do |t|
+  create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "password"
     t.text "profile"
@@ -29,16 +23,16 @@ ActiveRecord::Schema.define(version: 2020_03_01_004941) do
     t.string "icon"
   end
 
-  create_table "messages", force: :cascade do |t|
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
-    t.integer "room_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "user_type", default: false, null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "place"
     t.date "date"
     t.integer "mxpeople"
@@ -50,16 +44,16 @@ ActiveRecord::Schema.define(version: 2020_03_01_004941) do
     t.string "office_image"
   end
 
-  create_table "rooms", force: :cascade do |t|
-    t.integer "student_id", null: false
-    t.integer "post_id", null: false
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_rooms_on_post_id"
     t.index ["student_id"], name: "index_rooms_on_student_id"
   end
 
-  create_table "students", force: :cascade do |t|
+  create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "college"
     t.string "grade"
@@ -71,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_004941) do
     t.string "email"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "belongs"
     t.string "college_name"
