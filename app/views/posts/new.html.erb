@@ -3,7 +3,7 @@
     
         <%if @post.errors.any? %>
            <% @post.errors.full_messages.each do |e|%>
-                <p><%= e %></p>
+                <p class="error_message"><%= e %></p>
            <% end %> 
         <%end%>
 
@@ -30,6 +30,11 @@
         <div class="form_group"> 
             <%= f.label :詳細 %>
             <%= f.text_area :detail, class: "form-control", placeholder:"詳細", row: 6 %>
+        </div>
+
+        <div class="form_group"> 
+            <%= f.label :スペース画像 %>
+            <%= f.file_field :office_image, class: "form-control" %>
         </div>
 
         

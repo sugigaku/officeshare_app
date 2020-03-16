@@ -1,19 +1,32 @@
 <div class="container">
 <% if @company.posts.length >0 %>
   <% @company.posts.each do |p| %>
-    <ul>
-      <a href="/posts/<%=p.id %>">
-       <li>
-        <p><%= p.date%></p>
-        <p><%= p.place%></p>
-        <p><%= p.requirement%></p>
-       </li>
-      </a>
-    </ul>
+   <hr>
+    <div class="post col-12 my-4">
+    <a href="/posts/<%= p.id %>" class="post_link">
+      
+    <div class="row">
+            <div class="post_image col-xs-12 col-sm-6 text-center">
+                <%= image_tag  p.office_image.to_s %>
+            </div>
+      <div class="post_body col-xs-12 col-sm-6 mt-4">
+        <div class="post_texts">
+        <p class="flexible-fontsize"><i class="fa fa-calendar" aria-hidden="true"></i> 　<%= p.date %></p>
+        <p class="flexible-fontsize"><i class="fa fa-building-o" aria-hidden="true"></i> 　<%= p.place %></p>
+        <p class="flexible-fontsize"><i class="fa fa-users" aria-hidden="true"></i> 　~<%= p.mxpeople %>人</p>
+        <p class="flexible-fontsize"><i class="fa fa-handshake-o" aria-hidden="true"></i>　<%= p.requirement %></p>
+        </div> 
+      </div>
+          
+    </div>
+      
+    </a>  
+    </div>
+    <hr>
   <% end %>
   <!--謎表記聞く-->
  
 <% else %>
-　<p>まだ掲載情報がありません</p>
+　<p class="error_message">まだ掲載情報がありません</p>
 <% end %>
 </div>

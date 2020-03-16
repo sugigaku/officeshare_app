@@ -2,11 +2,11 @@
 <% if session[:company_id] %>
  <div class="row">
    <div class="col col-md-2">
-     <ul class="list-unstyled">
-       <li><a href="/posts">検索する</a></li>
-       <li><a href="/posts/new">掲載する</a></li>
-       <li><a href="#">メッセージ</a></li>
-       <li><a href="posts">掲載履歴</a></li>
+     <ul class="show_list">
+       <li><a href="/posts"><i class="fa fa-search" aria-hidden="true"></i> 検索する</a></li>
+       <li><a href="/posts/new"><i class="fa fa-newspaper-o" aria-hidden="true"></i> 掲載する</a></li>
+       <li><a href="/companies/rooms_index"><i class="fa fa-commenting-o" aria-hidden="true"></i> メッセージ</a></li>
+       <li><a href="posts"><i class="fa fa-history" aria-hidden="true"></i> 掲載履歴</a></li>
      </ul>
    </div>
  </div>
@@ -14,15 +14,15 @@
 </div>
 
 <div class="container text-center">
-  
-    <!--<img src="<%="/user_images/#{@company.icon}"%>">-->
+  <div class="icon my-4">
     <%= image_tag  @company.icon.to_s %>
-    <h2><%= @company.name %></h2>
+  </div>
+    <h2 class="user_name"><%= @company.name %></h2>
     
-    <div class="text-left ml-5">
+    <div class="profile text-left mt-4">
       <p>プロフィール:<%= @company.profile %></p>
     </div>
-    <% if session[:company_id]%> <!--学生から隠すため-->
-     <%= link_to  "編集", edit_company_path(@company) %>
+    <% if session[:company_id]%> 
+     <a href="/companies/<%= @company.id %>/edit" class="edit_link"><i class="fa fa-pencil" aria-hidden="true"></i>編集</a>
     <% end %>
 </div>

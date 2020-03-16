@@ -17,6 +17,11 @@ module RoomshareApp
     # the framework and any gems in your application.
 
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+    #エラー文日本語化
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    #チャット画面の日時表示のために試験的に導入
+    config.time_zone = 'Tokyo'
 
   end
 end

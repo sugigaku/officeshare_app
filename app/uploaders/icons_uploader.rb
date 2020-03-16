@@ -2,7 +2,7 @@ class IconsUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
    include CarrierWave::MiniMagick
-  process resize_to_limit: [300, 200]
+  process 
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -20,7 +20,7 @@ class IconsUploader < CarrierWave::Uploader::Base
      # For Rails 3.1+ asset pipeline compatibility:
      # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   
-     "/images/" + [version_name, "default.png"].compact.join('_')
+     "/images/" + [version_name, "default1.png"].compact.join('_')
    end
 
   # Process files as they are uploaded:

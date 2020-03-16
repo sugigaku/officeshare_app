@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
- before_action :set_current_user
+  before_action :set_current_user
+ 
   
   def set_current_user
     if session[:student_id]
@@ -9,28 +10,13 @@ class ApplicationController < ActionController::Base
         @student
       end
     elsif session[:company_id]
+
       if @company.nil?
         @company = Company.find_by(id: session[:company_id])
       else
         @company
       end
-    else
-      return
+    
     end
   end
-
-
-  def authenticate_user
-    if @current_user==nil
-      redirect_to("/login")
-    end
-  end
- 
-  
-  
-  
- 
 end
-
-
-

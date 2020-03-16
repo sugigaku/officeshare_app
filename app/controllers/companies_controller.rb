@@ -1,7 +1,5 @@
 class CompaniesController < ApplicationController
 
-  #before_action  :set_company #:access_restriction, 
-
   def index
     @companies = Company.all
   end
@@ -30,11 +28,12 @@ class CompaniesController < ApplicationController
   
   def new
     @company=Company.new
-    render layout: "application_not_login"
+  
+
   end
 
   def login_form 
-    render layout: "application_not_login"
+    
   end
 
   
@@ -44,8 +43,10 @@ class CompaniesController < ApplicationController
       session[:company_id] = @company.id
       redirect_to "/companies/#{@company.id}"
     else
+      session[:company_id] = nil
       @error_message = "名前またはパスワードが間違っています"
-      render "login_form"
+      render "login_form" 
+      
     end
   end
 
@@ -63,37 +64,18 @@ class CompaniesController < ApplicationController
     end 
   end
 
+  def rooms_index
+    @rooms = Room.where(post_id: @company.posts.ids)
+  end
+
 
 
 private
 
- def set_company
-
-  if @company.nil?
-     @company = Company.find_by(id: session[:company_id])
-  else
-     @company  
-  end
- end
-  
- 
   def company_params
     params.require(:company).permit(:name, :password, :place, :email, :profile, :icon)
   end
 
-  def access_restriction
-    @url = request.referer
-    if @url ==nil
-      if session[:student_id]
-        redirect_to 'student_path'    
-      elsif session[:company_id]
-        redirect_to 'company_path'
-      else
-        redirect_to "/"  
-      end
-    end
-  end
-
-
-
+ 
 end
+

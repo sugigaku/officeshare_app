@@ -3,7 +3,7 @@
 
     <% if @post.errors.any? %>
     <% @post.errors.full_messages.each do |e| %>
-        <p><%= e %></p>
+        <p class="error_message"><%= e %></p>
     <% end %>
     <% end %>
 
