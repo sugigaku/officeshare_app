@@ -7,8 +7,9 @@
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
+    <!--Font Awesome-->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <title>みんなのへや</title>
@@ -17,48 +18,49 @@
     <header>
      
      <% if session[:student_id] %>
+
      <div class="container-fluied">
        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-         
-         
-         <%= session[:student_id] %> 
-         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu"><span class="navbar-toggler-icon"></span>
+       
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu"><span class="navbar-toggler-icon"></span>
         </button>
+       
         <div class="collapse navbar-collapse justify-content-end" id="navmenu">
           <div class="navbar-nav">
-
             <a href="/posts" class="nav-item nav-link">検索する</a>
 
             <a href="/students/<%=@student.id%>" class="nav-item nav-link">マイページ</a>
 
-            <a href="" class="nav-item nav-link">お問い合せ</a>
-
             <a href="/" class="nav-item nav-link">ログアウト</a>
           </div>
          </div>
+
         </nav>  
       </div> 
-         <% elsif session[:company_id] %>
+
+     <% elsif session[:company_id] %>
+
       <div class="container-fluied">
        <nav class="navbar navbar-expand-md navbar-dark bg-dark">  
-         <%=session[:company_id] %>
+
          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu2"><span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse justify-content-end" id="navmenu2">
           <div class="navbar-nav">
-
             <a href="/posts" class="nav-item nav-link">検索する</a>
+
             <a href="/companies/<%=@company.id%>" class="nav-item nav-link">マイページ</a>
             
-            <a href="" class="nav-item nav-link">お問い合せ</a>
-
             <a href="/" class="nav-item nav-link">ログアウト</a>
           </div>
         </div>
         
        </nav>
       </div>
-       <%end%>
+
+
+     <%end%>
     
     </header>
 

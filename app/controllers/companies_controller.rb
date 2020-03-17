@@ -1,7 +1,9 @@
 class CompaniesController < ApplicationController
+  before_action :access_restriction
+
 
   def index
-    @companies = Company.all
+    redirect_to "/"
   end
 
 
@@ -38,13 +40,13 @@ class CompaniesController < ApplicationController
 
   
   def login
-    @company = Company.find_by(name: params[:name], password: params[:password])
+    @company = Company.find_by(email: params[:email], password: params[:password])
     if @company
       session[:company_id] = @company.id
       redirect_to "/companies/#{@company.id}"
     else
       session[:company_id] = nil
-      @error_message = "名前またはパスワードが間違っています"
+      @error_message = "メールアドレスまたはパスワードが間違っています"
       render "login_form" 
       
     end
@@ -68,6 +70,7 @@ class CompaniesController < ApplicationController
     @rooms = Room.where(post_id: @company.posts.ids)
   end
 
+  
 
 
 private
@@ -76,6 +79,7 @@ private
     params.require(:company).permit(:name, :password, :place, :email, :profile, :icon)
   end
 
+  
  
 end
 

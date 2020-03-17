@@ -1,10 +1,11 @@
 <div class="container">
+
  <%= form_with model: @post, url: post_path, local: true do |f| %>
 
     <% if @post.errors.any? %>
-    <% @post.errors.full_messages.each do |e| %>
-        <p class="error_message"><%= e %></p>
-    <% end %>
+        <% @post.errors.full_messages.each do |e| %>
+            <p class="error_message"><%= e %></p>
+        <% end %>
     <% end %>
 
     <div class="form-group">
@@ -29,10 +30,15 @@
 
     <div class="form-group">
     <%= f.label :詳細%>
-    <%= f.text_field :detail, class:"form-control", row: 6 %>
+    <%= f.text_area :detail, class:"form-control", row: 6 %>
     </div>
+    <div class="form_group"> 
+            <%= f.label :スペース画像 %>
+            <%= f.file_field :office_image, class: "form-control" %>
+        </div>
 
-    <%= f.submit %>
+    <%= f.submit '更新する', class: 'btn btn-outline-dark'%>
 
  <% end %>
+ 
 </div>

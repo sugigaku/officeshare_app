@@ -1,9 +1,20 @@
 <div class="container">
-<ul>
- <% @rooms.each do |room| %>
-   <a href="/rooms/<%=room.id%>" class="list-group-item">
-        <%= room.student.name %>
-   </a>
- <% end %>
-</ul>
+
+<% if @rooms.length>0 %>
+
+  <ul class="list-group">
+  <% @rooms.each do |room| %>
+
+    <a href="/rooms/<%=room.id%>">
+          <li class="list-group-item">
+              <%= room.student.name %><a href="/posts/<%= room.post.id %>" class="related_post">応募掲載</a>
+          </li>
+    </a>
+
+  <% end %>
+  </ul>
+
+<% else %>
+  <p class="error_message my-4">まだ応募がありません</p>
+<% end %>
 </div>

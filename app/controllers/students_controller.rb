@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
    
 before_action :set_student
+before_action :access_restriction
+
 
 def new
   @student = Student.new
@@ -41,12 +43,12 @@ end
 
   
   def login
-    @student = Student.find_by(name: params[:name], password: params[:password])
+    @student = Student.find_by(email: params[:email], password: params[:password])
     if @student
       session[:student_id] = @student.id
       redirect_to "/students/#{@student.id}"
     else
-      @error_message = "名前またはパスワードが間違っています"
+      @error_message = "メールアドレスまたはパスワードが間違っています"
       render "login_form"
     end
   end

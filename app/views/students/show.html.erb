@@ -12,18 +12,19 @@
  <% end %>
 </div>
 
+
 <div class="container-fluid text-center">
-  <div class="icon my-4">
-    <%= image_tag @student.icon.to_s %>
-  </div>
-    <h2 class="user_name"><%= @student.name %></h2>
-    
-    <div class="text-left mt-4 flexible-fontsize">
-      <p>大学:<%= @student.college %></p>
-      <p>学年:<%= @student.grade %></p>
-      <p>プロフィール:<%= @student.profile %></p>
+    <div class="icon my-4">
+      <%= image_tag @student.icon.to_s %>
     </div>
-   <% if session[:student_id] %>
-    <a href="/students/<%= @student.id %>/edit" class="flexible-fontsize"><i class="fa fa-pencil" aria-hidden="true"></i>編集</a>
-   <% end %>  
+    <h2 class="user_name"><%= @student.name %></h2>
+      
+    <div class="text-left mt-4 flexible-fontsize">
+        <p>大学:<%= @student.college %></p>
+        <p>学年:<%= @student.grade %></p>
+        <p>プロフィール:<%= @student.profile %></p>
+    </div>
+    <% if session[:student_id] %>
+      <a href="/students/<%= @student.id %>/edit" class="flexible-fontsize"><i class="fa fa-pencil" aria-hidden="true"></i>編集</a>
+    <% end %>  
 </div>

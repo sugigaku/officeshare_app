@@ -1,5 +1,7 @@
 require "date"
 class PostsController < ApplicationController
+  before_action :access_restriction
+
 
   def index 
     today = Date.today

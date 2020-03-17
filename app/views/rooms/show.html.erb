@@ -1,121 +1,124 @@
 <div class="container-fluid">
 <% if session[:student_id] %>
 
-<div class="collocutor_name">
-  <h3 class="text-center"><a href="/companies/<%= @room.post.company.id %>"><%= @room.post.company.name%></a></h3>
-</div>
+    <div class="collocutor_name">
+      <h3 class="text-center"><a href="/companies/<%= @room.post.company.id %>"><%= @room.post.company.name%></a></h3>
+    </div>
 
 
- 
-  <%@messages.each do |m|%>
-   <div class="remark"><!--①LINE会話全体を囲う-->
+    
+      <%@messages.each do |m|%>
+        <div class="remark"><!--発言1個分の囲い-->
 
 
-    <% if m.user_type==false%>
-      <!--②左コメント始-->
-      <div class="collocutor">
-        <div class="faceicon">
-          <%= image_tag @room.post.company.icon.to_s %>
-        </div>
-        <div class="chatting">
-          <div class="comment">
-            <p><%= m.content %></p>
-          </div>
-        
-        <div class="collocutor_created_at">
-            <p><%= m.created_at.strftime('%m月%d日 %k:%M') %></p>
-        </div>
-        </div>
-      </div>
-      <!--②/左コメント終-->
-    <% else %>
-      <!--③右コメント始-->
-      <div class="mycomment">
-        <p><%= m.content %></p>
-      </div>
-      <div class="created_at">
-            <p><%= m.created_at.strftime('%m月%d日 %k:%M') %></p>
-        </div>
-      <!--/③右コメント終-->
-    <% end %>  
-      
-    </div><!--/①LINE会話終了-->
-  <% end %>
+          <% if m.user_type==false%>
+            <!--相手コメント始-->
+            <div class="collocutor">
+                <div class="faceicon">
+                  <%= image_tag @room.post.company.icon.to_s %>
+                </div>
+                <div class="chatting">
+                  <div class="comment">
+                    <p><%= m.content %></p>
+                  </div>
+              　</div>  
+                <div class="collocutor_created_at">
+                    <p><%= m.created_at.strftime('%m月%d日 %k:%M') %></p>
+                </div>
+            </div>
+            <!--相手コメント終-->
+          <% else %>
+                <!--自分コメント始-->
+                <div class="mycomment">
+                  <p><%= m.content %></p>
+                </div>
+                <div class="created_at">
+          　　     <p><%= m.created_at.strftime('%m月%d日 %k:%M') %></p>
+                </div>
+                <!--自分コメント終-->
+          <% end %>  
+            
 
+        </div><!--発言1個分終了-->
+    　<% end %>
+
+          
       <% if @message.errors.any? %>
             <% @message.errors.full_messages.each do |e|%>
-              <p class="error_message"><%= e %></p>
+                 <p class="error_message"><%= e %></p>
             <% end %>
       <% end %>
 
-      <%= form_with model: @message, url: messages_path, local: true do |f| %>
-            
-            <%= f.text_field :content, class: "form-control", placeholder: "メッセージを入力" %>
-            <%= f.hidden_field :user_type, :value => true %>
-            <%= f.hidden_field :room_id, :value => @room.id %>
-            
-            <%= f.submit '送信', class: "btn btn-outline-dark" %>
-      <% end %>
+
+          <%= form_with model: @message, url: messages_path, local: true do |f| %>
+                
+                <%= f.text_field :content, class: "form-control", placeholder: "メッセージを入力" %>
+                <%= f.hidden_field :user_type, :value => true %>
+                <%= f.hidden_field :room_id, :value => @room.id %>
+                
+                <%= f.submit '送信', class: "btn btn-outline-dark" %>
+          <% end %>
+
 
 <% end %>
 
 <% if session[:company_id] %>
  
- <div class="collocutor_name">
-   <h3 class="text-center"><a href="/students/<%= @room.student.id %>"><%= @room.student.name%></a></h3>
- </div>
- 
+    <div class="collocutor_name">
+      <h3 class="text-center"><a href="/students/<%= @room.student.id %>"><%= @room.student.name%></a></h3>
+    </div>
+    
 
 
-  <%@messages.each do |m|%>
-   <div class="remark"><!--①LINE会話全体を囲う-->
+      <%@messages.each do |m|%>
+      <div class="remark"><!--発言1個分の囲い-->
 
 
-    <% if m.user_type==true%>
-      <!--②左コメント始-->
-      <div class="collocutor">
-        <div class="faceicon">
-          <%= image_tag @room.student.icon.to_s %>
-        </div>
-        <div class="chatting">
-          <div class="comment">
+        <% if m.user_type==true%>
+          <!--相手コメント始-->
+          <div class="collocutor">
+              <div class="faceicon">
+                <%= image_tag @room.student.icon.to_s %>
+              </div>
+              <div class="chatting">
+                <div class="comment">
+                  <p><%= m.content %></p>
+                </div>
+              </div>
+              <div class="collocutor_created_at">
+                  <p><%= m.created_at.strftime('%m月%d日 %k:%M') %></p>
+              </div>
+          </div>
+          <!--相手コメント終-->
+        <% else %>
+          <!--③右コメント始-->
+          <div class="mycomment">
             <p><%= m.content %></p>
           </div>
-        </div>
-        <div class="collocutor_created_at">
+          <div class="created_at">
             <p><%= m.created_at.strftime('%m月%d日 %k:%M') %></p>
-        </div>
-      </div>
-      <!--②/左コメント終-->
-    <% else %>
-      <!--③右コメント始-->
-      <div class="mycomment">
-        <p>
-        <%= m.content %>
-        </p>
-      </div>
-      <div class="created_at">
-         <p><%= m.created_at.strftime('%m月%d日 %k:%M') %></p>
-      </div>
-      <!--/③右コメント終-->
-    <% end %>  
-      
-    </div><!--/①LINE会話終了-->
-  <% end %>
-
-       <% if @message.errors.any? %>
-            <% @message.errors.full_messages.each do |e|%>
-              <p class="error_message"><%= e %></p>
-            <% end %>
+          </div>
+          <!--相手コメント終-->
+        <% end %>  
+          
+        </div><!--発言1個分終了-->
       <% end %>
 
-      <%= form_with model: @message, url: messages_path, local: true do |f| %>
-            <%= f.text_field :content, class: "form-control", placeholder: "メッセージを入力" %>
-            <%= f.hidden_field :user_type, :value => false %>
-            <%= f.hidden_field :room_id, :value => @room.id %>
-            
-            <%= f.submit '送信', class: "btn btn-outline-dark" %>
-      <% end %>
+
+          <% if @message.errors.any? %>
+                <% @message.errors.full_messages.each do |e|%>
+                  <p class="error_message"><%= e %></p>
+                <% end %>
+          <% end %>
+
+
+          <%= form_with model: @message, url: messages_path, local: true do |f| %>
+                <%= f.text_field :content, class: "form-control", placeholder: "メッセージを入力" %>
+                <%= f.hidden_field :user_type, :value => false %>
+                <%= f.hidden_field :room_id, :value => @room.id %>
+                
+                <%= f.submit '送信', class: "btn btn-outline-dark" %>
+          <% end %>
 
 <% end %>
 

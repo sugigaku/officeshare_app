@@ -1,4 +1,7 @@
 class RoomsController < ApplicationController
+  before_action :access_restriction
+
+
   def show
     @room = Room.find(params[:id])
     @message = Message.new

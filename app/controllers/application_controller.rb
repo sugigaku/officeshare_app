@@ -19,4 +19,12 @@ class ApplicationController < ActionController::Base
     
     end
   end
+
+  def access_restriction
+    if request.referer===nil
+      redirect_to "/"
+    end
+  end
+
+
 end

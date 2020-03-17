@@ -1,13 +1,17 @@
 <div class="container">
-<% if @rooms.length>0 %>
-<div class="list-group">
- <% @rooms.each do |room| %>
-   <a href="/rooms/<%=room.id%>" class="list-group-item">
-        <%= room.post.company.name %>
-   </a>
- <% end %>
-</div>
-<% else %>
- <p class="error_message mt-4">まだ応募していません</p>
-<% end %>
+
+  <% if @rooms.length>0 %>
+    <div class="list-group">
+    <% @rooms.each do |room| %>
+      <a href="/rooms/<%=room.id%>">
+        <li class="list-group-item">
+            <%= room.post.company.name %><a href="/posts/<%= room.post.id %>" class="related_post">応募掲載</a>
+        </li>
+      </a>
+    <% end %>
+    </div>
+  <% else %>
+      <p class="error_message mt-4">まだ応募していません</p>
+  <% end %>
+
 </div>

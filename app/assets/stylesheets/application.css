@@ -138,6 +138,10 @@ tbody {
   width: 40vw;
   height: auto;
 }
+/*メッセージぺージ*/
+.related_post{
+  float: right;
+}
 /*post検索ページ*/
 .post{
   height: 300px;
@@ -432,7 +436,4 @@ tbody {
       border: 8px solid transparent;
       border-left: 9px solid #edf1ee;
     }
-    
-    
-    
 }

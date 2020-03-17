@@ -1,4 +1,5 @@
 <div class="container">
+
     <%= form_with model: @post, url: posts_path, local: true do |f| %>
     
         <%if @post.errors.any? %>
@@ -38,6 +39,7 @@
         </div>
 
         
-        <%= f.submit %>
+        <%= f.submit '掲載する', class: 'btn btn-outline-dark'%>
     <% end %>
+    
 </div>

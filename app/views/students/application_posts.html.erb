@@ -3,29 +3,28 @@
 <div class="container-fluid">
 <div class="row">
     <% @rooms.each do |room| %>
-    <hr>
-    <div class = "post col-12 my-4">
-      <a href = "/posts/<%= room.post_id %>" class="post_link">
-
-      <div class="row">
-      <div class="post_image col-xs-12 col-sm-6 text-center">
-                <%= image_tag  room.post.office_image.to_s %>
-            </div>
-      <div class="post_body col-xs-12 col-sm-6 mt-4">
-        <div class="post_texts">
-        <p class="flexible-fontsize"><i class="fa fa-calendar" aria-hidden="true"></i> 　<%= room.post.date %></p>
-        <p class="flexible-fontsize"><i class="fa fa-building-o" aria-hidden="true"></i> 　<%= room.post.place %></p>
-        <p class="flexible-fontsize"><i class="fa fa-users" aria-hidden="true"></i> 　~<%= room.post.mxpeople %>人</p>
-        <p class="flexible-fontsize"><i class="fa fa-handshake-o" aria-hidden="true"></i>　<%= room.post.requirement %></p>
-        </div> 
-      </div>
-    </div>
-    </a>  
-    </div>
-    <hr>
+        <hr>
+        <div class = "post col-12 my-4">
+          <a href = "/posts/<%= room.post_id %>" class="post_link">
+            <div class="row">
+                <div class="post_image col-xs-12 col-sm-6 text-center">
+                      <%= image_tag  room.post.office_image.to_s %>
+                </div>
+                <div class="post_body col-xs-12 col-sm-6 mt-4">
+                  <div class="post_texts">
+                      <p class="flexible-fontsize"><i class="fa fa-calendar" aria-hidden="true"></i> 　<%= room.post.date %></p>
+                      <p class="flexible-fontsize"><i class="fa fa-building-o" aria-hidden="true"></i> 　<%= room.post.place %></p>
+                      <p class="flexible-fontsize"><i class="fa fa-users" aria-hidden="true"></i> 　~<%= room.post.mxpeople %>人</p>
+                      <p class="flexible-fontsize"><i class="fa fa-handshake-o" aria-hidden="true"></i>　<%= room.post.requirement %></p>
+                  </div> 
+                </div>
+      　　   </div>
+          </a>  
+        </div>
+        <hr>
     <% end %>
 </div>
 </div>
 <% else %>
-<p class="error_message mt-4">まだ応募していません</p>
+  <p class="error_message mt-4">まだ応募していません</p>
 <% end %>
