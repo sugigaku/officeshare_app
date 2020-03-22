@@ -13,8 +13,8 @@
  
  *= require_self
  */
- require_tree .
- *{
+ 
+  *{
    margin: 0;
    padding: 0;
  }
@@ -235,7 +235,7 @@ tbody {
   max-width: 250px;
   border-radius: 12px;
   background: #edf1ee;
-  font-size: 15px:
+  font-size: 15px;
 }
 .mycomment p {
   margin: 0;
@@ -436,4 +436,5 @@ tbody {
       border: 8px solid transparent;
       border-left: 9px solid #edf1ee;
     }
+  }  
 }
