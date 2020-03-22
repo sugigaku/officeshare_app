@@ -6,11 +6,9 @@ class CompaniesController < ApplicationController
     redirect_to "/"
   end
 
-
   
   def create
     @company = Company.new(company_params)
-
    if @company.save
      session[:company_id] = @company.id
      redirect_to "/companies/#{@company.id}"
@@ -19,23 +17,22 @@ class CompaniesController < ApplicationController
    end
   end
   
+
   def show
     @company = Company.find(params[:id]) #studentからの訪問用
   end
 
-  def posts
-    
+
+  def posts    
   end
 
   
   def new
     @company=Company.new
-  
-
   end
 
-  def login_form 
-    
+
+  def login_form   
   end
 
   
@@ -66,20 +63,20 @@ class CompaniesController < ApplicationController
     end 
   end
 
+
   def rooms_index
     @rooms = Room.where(post_id: @company.posts.ids)
   end
 
   
 
+ private
 
-private
 
   def company_params
     params.require(:company).permit(:name, :password, :place, :email, :profile, :icon)
   end
 
-  
- 
+   
 end
 

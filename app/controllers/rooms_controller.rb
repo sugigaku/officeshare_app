@@ -8,6 +8,7 @@ class RoomsController < ApplicationController
     @messages = Message.where(room_id: @room.id)
   end
 
+
   def create
     @room = Room.new(student_id: @student.id, post_id: params[:post_id])
     if @room.save
@@ -16,7 +17,7 @@ class RoomsController < ApplicationController
       @eroom = Room.find_by(student_id: @student.id, post_id: params[:post_id])
       redirect_to "/rooms/#{@eroom.id}"
     end
-
   end
 
+  
 end

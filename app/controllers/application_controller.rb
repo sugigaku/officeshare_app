@@ -10,16 +10,15 @@ class ApplicationController < ActionController::Base
         @student
       end
     elsif session[:company_id]
-
       if @company.nil?
         @company = Company.find_by(id: session[:company_id])
       else
         @company
       end
-    
     end
   end
 
+  
   def access_restriction
     if request.referer===nil
       redirect_to "/"
