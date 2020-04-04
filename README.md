@@ -1,24 +1,23 @@
-# README
+# みんなの部屋(minnnanoheya)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+"みんなの部屋" is a web matching service between companies and students.
 
-Things you may want to cover:
+## Description
 
-* Ruby version
+This web application helps both companies which want more name recognition among students and students who want space for their activities for free. 
 
-* System dependencies
+By registering for this service, companies can post information of rooms they can lend to students with non-monetary exchange terms, such as participation in company briefings. 
 
-* Configuration
+Students can search and apply for posts that suit their needs, and once both sides agree, students can use rooms for free and companies can gain recognition among students with no advertising expenses.
 
-* Database creation
 
-* Database initialization
+## Local Development
 
-* How to run the test suite
+```
+$ git clone https://github.com/sugigaku/officeshare_app.git
+$ cd officeshare_app
+$ docker-compose up --build
 
-* Services (job queues, cache servers, search engines, etc.)
+Then you can access to localhost:3000 and do anything.
+```
 
-* Deployment instructions
-
-* ...
