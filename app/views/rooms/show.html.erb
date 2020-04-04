@@ -30,7 +30,7 @@
           <% else %>
                 <!--自分コメント始-->
                 <div class="mycomment">
-                  <p><%= m.content %></p>
+                  <p class="flexible-fontsize"><%= m.content %></p>
                 </div>
                 <div class="created_at">
           　　     <p><%= m.created_at.strftime('%m月%d日 %k:%M') %></p>
@@ -93,7 +93,7 @@
         <% else %>
           <!--③右コメント始-->
           <div class="mycomment">
-            <p><%= m.content %></p>
+            <p class="flexible-fontsize"><%= m.content %></p>
           </div>
           <div class="created_at">
             <p><%= m.created_at.strftime('%m月%d日 %k:%M') %></p>
