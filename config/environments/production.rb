@@ -92,4 +92,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.hosts << "minnanoheya.herokuapp.com"
+  config.hosts << "minnanoheya-stg2.herokuapp.com"
 end

@@ -59,4 +59,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.hosts << "minnanoheya.herokuapp.com"
+  config.hosts << "minnanoheya-stg2.herokuapp.com"
 end
