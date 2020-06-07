@@ -5,7 +5,7 @@ ruby '2.6.3'
 
 gem 'rails'
 #gem 'mysql2'
-gem 'puma', '~> 3.12.4'
+gem 'puma', '~> 3.12.6'
 gem 'sassc-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'duktape'
