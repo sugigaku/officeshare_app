@@ -5,4 +5,12 @@ class HomeController < ApplicationController
     session[:company_id]=nil
   end
 
+  def select
+  end
+
+
+  def login_select
+  end
+  
+
 end

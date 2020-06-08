@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+
+
+   <div class="mx-auto my-4  col-xs-12 col-sm-6">
+   
+        <% if current_page?(:controller => 'home', :action => 'select')%>
+            <a href="/companies/new" class="select-card">
+        <% else %> 
+            <a href="/companies/login_form" class="select-card">
+        <% end %>  
+            <div class ="row">
+                <div class="card mx-auto col-5">
+                    <img class="card-img-top" src="/images/companyimage.png">
+                    <div class="card-body">
+                        <p class="flexible-fontsize text-center">企業</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </a>
+   </div>
+
+   <div class="mx-auto my-4  col-xs-12 col-sm-6">
+    <% if current_page?(:controller => 'home', :action => 'select') %>
+        <a href="/students/new" class="select-card">
+    <% else %>
+        <a href="/students/login_form" class="select-card">
+    <% end %> 
+            <div class ="row">
+                <div class="card mx-auto col-5">
+                    <img class="card-img-top" src="/images/studentimage.png">
+                    <div class="card-body">
+                        <p class="flexible-fontsize text-center">学生</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+   </div>
+   
+  </div>
+</div>
+

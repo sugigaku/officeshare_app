@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+       
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu"><span class="navbar-toggler-icon"></span>
+        </button>
+       
+        <div class="collapse navbar-collapse justify-content-end" id="navmenu">
+          <div class="navbar-nav">
+            <%=link_to "検索する", posts_path, class: "nav-item nav-link"%>
+            <%=link_to "お問い合わせ", "https://docs.google.com/forms/d/e/1FAIpQLScCj4rCrjJDMf4rSJ4UQHrj4eqhy6EAgtT0L5U3RVKypTGwjg/viewform", class: "nav-item nav-link"%>
+            <%=link_to "マイページ", user, class: "nav-item nav-link"%>
+            <%=link_to "ログアウト", root_path, class: "nav-item nav-link"%>
+          </div>
+         </div>
+</nav>  

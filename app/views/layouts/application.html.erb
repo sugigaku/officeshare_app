@@ -16,55 +16,13 @@
   </head>
   <body>
     <header>
-     
-     <% if session[:student_id] %>
-
      <div class="container-fluied">
-       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-       
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu"><span class="navbar-toggler-icon"></span>
-        </button>
-       
-        <div class="collapse navbar-collapse justify-content-end" id="navmenu">
-          <div class="navbar-nav">
-            <a href="/posts" class="nav-item nav-link">検索する</a>
-
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCj4rCrjJDMf4rSJ4UQHrj4eqhy6EAgtT0L5U3RVKypTGwjg/viewform" class="nav-item nav-link">お問い合わせ</a>
-
-            <a href="/students/<%=@student.id%>" class="nav-item nav-link">マイページ</a>
-
-            <a href="/" class="nav-item nav-link">ログアウト</a>
-          </div>
-         </div>
-
-        </nav>  
-      </div> 
-
-     <% elsif session[:company_id] %>
-
-      <div class="container-fluied">
-       <nav class="navbar navbar-expand-md navbar-dark bg-dark">  
-
-         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navmenu2"><span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="navmenu2">
-          <div class="navbar-nav">
-            <a href="/posts" class="nav-item nav-link">検索する</a>
-
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCj4rCrjJDMf4rSJ4UQHrj4eqhy6EAgtT0L5U3RVKypTGwjg/viewform" class="nav-item nav-link">お問い合わせ</a>
-
-            <a href="/companies/<%=@company.id%>" class="nav-item nav-link">マイページ</a>
-            
-            <a href="/" class="nav-item nav-link">ログアウト</a>
-          </div>
-        </div>
-        
-       </nav>
-      </div>
-
-
-     <%end%>
+      <% if session[:student_id] %>
+        <%= render "layouts/header", user:@student%>
+      <% elsif session[:company_id] %>
+        <%= render "layouts/header", user:@company%>
+        <%end%>
+     </div>  
     
     </header>
 

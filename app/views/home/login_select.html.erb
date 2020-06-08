@@ -1,0 +1,41 @@
+
+<%=render 'layouts/select'%>
+<%
+=begin%>
+ 
+<div class="container-fluid">
+  <div class="row">
+
+
+   <div class="mx-auto my-4  col-xs-12 col-sm-6">
+    <%= link_to companies_login_form_path, class: "select-card" do %>
+        <div class ="row">
+            <div class="card mx-auto col-5">
+                <img class="card-img-top" src="/images/companyimage.png">
+                <div class="card-body">
+                    <p class="flexible-fontsize text-center">企業でログインする</p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+   </div>
+
+
+   <div class="mx-auto my-4  col-xs-12 col-sm-6">
+     <%= link_to students_login_form_path, class: "select-card" do %>
+     　<div class ="row">
+          <div class="card mx-auto col-5">
+              <img class="card-img-top" src="/images/studentimage.png">
+              <div class="card-body">
+                  <p class="flexible-fontsize text-center">学生でログインする</p>
+              </div>
+          </div>
+      </div>
+   <% end %>
+   </div>
+
+  </div>
+</div>
+ 
+<%
+=end%>
