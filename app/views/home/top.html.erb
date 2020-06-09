@@ -8,8 +8,18 @@
 
       <p class="subtitle mt-2">企業と学生をスペースで結ぶ</p>
 
-      <a href="users/select" class="btn btn-success new-btn mt-4 p-1">新規登録</a>
-      <a href="users/login_select" class="btn btn-info login-btn mt-4 p-1">ログイン</a>
+      <%
+=begin%>
+ <a href="users/select" class="btn btn-success new-btn mt-4 p-1">新規登録</a> 
+<%
+=end%>
+      <%= link_to  "新規登録", home_select_path, class: "btn btn-success new-btn mt-4 p-1"%>
+      <%= link_to  "ログイン", home_login_select_path, class: "btn btn-info login-btn mt-4 p-1"%>
+      <%
+=begin%>
+ <a href="users/login_select" class="btn btn-info login-btn mt-4 p-1">ログイン</a> 
+<%
+=end%>
 
     </div>
   </div>

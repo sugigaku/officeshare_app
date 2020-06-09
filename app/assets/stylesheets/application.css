@@ -10,10 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *=require_self
  
- *= require_self
  */
- 
+
   *{
    margin: 0;
    padding: 0;
@@ -70,7 +70,7 @@ tbody {
 }
 .top-image h1{
   position: absolute;
-  color: aliceblue;
+  color: rgb(219, 247, 134);
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
@@ -82,7 +82,7 @@ tbody {
 }
 .subtitle{
   position: absolute;
-  color: aliceblue;
+  color: rgb(255, 255, 255);
   top: 60%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
@@ -112,9 +112,7 @@ tbody {
   padding:0;
 }
 /*新規登録・フォーム　　　　　←これ多分いらない、要確認*/
-.btn{
-  justify-content: center;
-}
+
 /*selectページ*/
 .select-card{
   color: rgb(105, 112, 123);

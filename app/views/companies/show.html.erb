@@ -4,10 +4,21 @@
   <div class="row">
     <div class="col col-md-2">
       <ul class="show_list">
-        <li><a href="/posts"><i class="fa fa-search" aria-hidden="true"></i> 検索する</a></li>
-        <li><a href="/posts/new"><i class="fa fa-newspaper-o" aria-hidden="true"></i> 掲載する</a></li>
-        <li><a href="/companies/rooms_index"><i class="fa fa-commenting-o" aria-hidden="true"></i> メッセージ</a></li>
-        <li><a href="posts"><i class="fa fa-history" aria-hidden="true"></i> 掲載履歴</a></li>
+        <li>
+          <%= link_to new_post_path do %>
+            <i class="fa fa-newspaper-o" aria-hidden="true"></i> 掲載する
+          <% end %>
+       </li>     
+        <li>
+          <%= link_to companies_rooms_index_path do %>
+            <i class="fa fa-commenting-o" aria-hidden="true"></i> メッセージ
+          <% end %>
+       </li>    
+       <li>
+          <%= link_to companies_posts_path do %>
+            <i class="fa fa-history" aria-hidden="true"></i> 掲載履歴
+          <% end %>
+       </li>    
       </ul>
     </div>
   </div>
@@ -16,12 +27,8 @@
 </div>
 
 <div class="container text-center">
-
-    <div class="icon my-4">
-      <%= image_tag  @company.icon.to_s %>
-    </div>
-
-    <h2 class="user_name"><%= @company.name %></h2>
+    <%= render "layouts/icon", user:@company%>
+      
     
     <div class="profile text-left mt-4">
       <p>プロフィール:<%= @company.profile %></p>
