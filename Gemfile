@@ -22,7 +22,8 @@ gem 'jquery-rails'
 gem 'sprockets-rails', '3.2.1'
 #エラー文の日本語化
 gem 'rails-i18n'
-
+gem 'devise'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
