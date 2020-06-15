@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-  <% if session[:company_id] %>
+  <% if current_company %>
   <div class="row">
     <div class="col col-md-2">
       <ul class="show_list">
@@ -31,11 +31,13 @@
       
     
     <div class="profile text-left mt-4">
-      <p>プロフィール:<%= @company.profile %></p>
+      <p class="flexible-fontsize">プロフィール:<%= @company.profile %></p>
     </div>
 
-    <% if session[:company_id]%> 
-     <a href="/companies/<%= @company.id %>/edit" class="edit_link"><i class="fa fa-pencil" aria-hidden="true"></i>編集</a>
+    <% if current_company %> 
+      <%= link_to edit_company_registration_path do%>
+        <i class="fa fa-pencil" aria-hidden="true"></i>編集
+      <% end%>
     <% end %>
     
 </div>

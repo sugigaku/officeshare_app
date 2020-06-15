@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
-<% if @company.posts.length >0 %>
-    <% @company.posts.each do |p| %>
+<% if current_company.posts.length >0 %>
+    <% current_company.posts.each do |p| %>
       <hr>
         <div class="post col-12 my-4">
         <a href="/posts/<%= p.id %>" class="post_link">

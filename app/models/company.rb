@@ -1,10 +1,10 @@
 class Company < ApplicationRecord
-mount_uploader :icon, IconsUploader
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :confirmable
 
-has_many :posts, dependent: :destroy
+  mount_uploader :icon, IconsUploader       
 
-validates :name, presence: true
-validates :email, presence: true, uniqueness: true
-validates :password, presence: true, length:{minimum: 6}
-
+  has_many :posts, dependent: :destroy
 end

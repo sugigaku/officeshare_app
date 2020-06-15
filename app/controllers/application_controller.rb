@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user
+  # before_action :set_current_user
+  before_action :configure_permitted_parameters_for_newcompany, only: [:create], if: :devise_controller?
+  before_action :configure_permitted_parameters_for_updatecompany, only: [:update], if: :devise_controller?
  
   
   def set_current_user
@@ -26,4 +28,15 @@ class ApplicationController < ActionController::Base
   end
 
 
+  protected 
+   
+   def configure_permitted_parameters_for_newcompany
+    added_attrs = [ :name, :place, :profile]
+    devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
+   end
+
+   def configure_permitted_parameters_for_updatecompany
+    added_attrs = [ :name, :place, :profile, :icon]
+    devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
+   end
 end

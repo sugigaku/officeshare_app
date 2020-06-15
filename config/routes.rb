@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :companies
   get 'messages/create'
   get 'rooms/show'
-  root "home#top"
+  root "companies#show"
   get '/home/select', to: 'home#select'
   get '/home/login_select', to: 'home#login_select'
+  get '/top', to: 'home#top'
 
   
   get '/users/select', to: 'users#select'

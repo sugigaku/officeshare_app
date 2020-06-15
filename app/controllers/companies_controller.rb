@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :access_restriction
+  # before_action :access_restriction
 
 
   def index
@@ -19,7 +19,11 @@ class CompaniesController < ApplicationController
   
 
   def show
-    @company = Company.find(params[:id]) #studentからの訪問用
+    if company_signed_in? 
+      @company = current_company
+    else
+      redirect_to controller: 'home', action: 'top'
+    end
   end
 
 
@@ -65,7 +69,7 @@ class CompaniesController < ApplicationController
 
 
   def rooms_index
-    @rooms = Room.where(post_id: @company.posts.ids)
+    @rooms = Room.where(post_id: current_company.posts.ids)
   end
 
   
