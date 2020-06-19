@@ -9,8 +9,7 @@ class StudentsController < ApplicationController
 
 
   def index
-    redirect_to ""
-    @students = Students.all
+    redirect_to root_url
   end
 
 
@@ -26,7 +25,7 @@ class StudentsController < ApplicationController
 
 
   def show
-    @student = Student.find(params[:id]) #companyからの訪問用
+    @student = current_student
   end
 
 
@@ -62,14 +61,18 @@ class StudentsController < ApplicationController
 
 
   def rooms_index
-    @rooms = Room.where(student_id: @student.id)
+    @rooms = Room.where(student_id: current_student.id)
   end
 
 
   def application_posts
-    @rooms = Room.where(student_id: @student.id)  
+    @rooms = Room.where(student_id: current_student.id)  
   end
 
+
+  def show_company
+    @company=Company.find(params[:id])
+  end
 
 
   private

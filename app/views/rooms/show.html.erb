@@ -1,8 +1,8 @@
 <div class="container-fluid">
-<% if session[:student_id] %>
+<% if current_student %>
 
     <div class="collocutor_name">
-      <h3 class="text-center"><a href="/companies/<%= @room.post.company.id %>"><%= @room.post.company.name%></a></h3>
+      <h3 class="text-center"><a href="/show_company/<%= @room.post.company.id %>"><%= @room.post.company.name%></a></h3>
     </div>
 
 
@@ -62,10 +62,10 @@
 
 <% end %>
 
-<% if session[:company_id] %>
+<% if current_company %>
  
     <div class="collocutor_name">
-      <h3 class="text-center"><a href="/students/<%= @room.student.id %>"><%= @room.student.name%></a></h3>
+      <h3 class="text-center"><a href="/show_student/<%= @room.student.id %>"><%= @room.student.name%></a></h3>
     </div>
     
 

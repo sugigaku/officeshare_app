@@ -21,6 +21,8 @@ class CompaniesController < ApplicationController
   def show
     if company_signed_in? 
       @company = current_company
+    elsif student_signed_in?
+      redirect_to student_url(current_student)
     else
       redirect_to controller: 'home', action: 'top'
     end
@@ -70,6 +72,10 @@ class CompaniesController < ApplicationController
 
   def rooms_index
     @rooms = Room.where(post_id: current_company.posts.ids)
+  end
+
+  def show_student
+    @student=Student.find(params[:id])
   end
 
   

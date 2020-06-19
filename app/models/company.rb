@@ -7,4 +7,6 @@ class Company < ApplicationRecord
   mount_uploader :icon, IconsUploader       
 
   has_many :posts, dependent: :destroy
+
+  validates :name, presence: true
 end

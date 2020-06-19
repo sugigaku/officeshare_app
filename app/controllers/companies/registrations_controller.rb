@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Companies::RegistrationsController < Devise::RegistrationsController
+  skip_before_action :configure_permitted_parameters_for_newstudent
+  skip_before_action :configure_permitted_parameters_for_updatestudent
   skip_before_action :onfigure_permitted_parameters_for_newcompany, only: [:update]
   skip_before_action :configure_permitted_parameters_for_updatecompany, only: [:create]
 
@@ -11,6 +13,7 @@ class Companies::RegistrationsController < Devise::RegistrationsController
 
   POST /resource
   def create
+    
     super
   end
 

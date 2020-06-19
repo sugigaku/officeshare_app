@@ -19,13 +19,11 @@
      <div class="container-fluied">
       <% if current_company %>
         <%= render "layouts/header", user:@company%>
-      <%
-=begin%>
- <% elsif current_student %>
+      
+      <% elsif current_student %>
         <%= render "layouts/header", user:@student%> 
-<%
-=end%>
-        <%end%>
+
+      <%end%>
      </div>  
     
     </header>
