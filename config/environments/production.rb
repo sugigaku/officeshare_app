@@ -93,4 +93,17 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.hosts << "minnanoheya.herokuapp.com"
   config.hosts << "minnanoheya-stg2.herokuapp.com"
+
+  config.action_mailer.default_url_options = {host: 'http://minnanoheya.herokuapp.com' }
+  config.action_mailer.raise_delivery_errors = false　
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :user_name => "app165511334@heroku.com",
+  　　　　　　　　:password => "antpvlcg9892",
+      :domain => "heroku.com",
+      :address => "smtp.sendgrid.net",
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
+  }
 end

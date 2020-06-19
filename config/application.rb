@@ -23,5 +23,7 @@ module RoomshareApp
     #チャット画面の日時表示のために試験的に導入
     config.time_zone = 'Tokyo'
 
+    config.assets.initialize_on_precompile = false
+
   end
 end
