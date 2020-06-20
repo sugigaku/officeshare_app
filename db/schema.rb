@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_014100) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
-  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content"
     t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_014100) do
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "place"
     t.date "date"
     t.integer "mxpeople"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_06_16_014100) do
     t.string "office_image"
   end
 
-  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "student_id", null: false
     t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -81,22 +81,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_014100) do
     t.text "profile"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
-  end
-
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "belongs"
-    t.string "college_name"
-    t.integer "grade"
-    t.string "icon"
-    t.text "profile"
-    t.string "place"
-    t.string "HP"
-    t.string "TEL"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password"
-    t.string "userid"
   end
 
   add_foreign_key "messages", "rooms"
