@@ -93,4 +93,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.hosts << "minnanoheya.herokuapp.com"
   config.hosts << "minnanoheya-stg2.herokuapp.com"
+
+  config.assets.precompile += ['room_reload.js']
 end

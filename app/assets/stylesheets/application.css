@@ -254,6 +254,12 @@ tbody {
   font-size: 10px;
 }
 
+/* チャット領域のサイズ設定 */
+
+iframe {
+  min-height: 400px; 
+}	}
+
 
 @media (max-width: 992px){
   

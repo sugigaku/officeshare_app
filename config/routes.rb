@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'messages/create'
-  get 'rooms/show'
+  
   root "home#top"
   get '/home/select', to: 'home#select'
   get '/home/login_select', to: 'home#login_select'
@@ -25,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :posts
 
-
+  get '/rooms/room_messages/:id', to: "rooms#room_messages", as: "room_messages"
   resources :rooms
 
 

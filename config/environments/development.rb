@@ -60,4 +60,6 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.hosts << "minnanoheya.herokuapp.com"
   config.hosts << "minnanoheya-stg2.herokuapp.com"
+
+  config.assets.precompile += ['room_reload.js']
 end
