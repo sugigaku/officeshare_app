@@ -16,7 +16,7 @@
   </head>
   <body>
 
-<% if current_company %>
+<% if session[:company_id] %>
 <div id="messages">
 
 
@@ -56,7 +56,7 @@
         </div><!--発言1個分終了-->
       <% end %>
 </div> 
-<% elsif current_student%>
+<% elsif session[:student_id]%>
 <div id="messages">
 
 
