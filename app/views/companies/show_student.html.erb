@@ -1,0 +1,9 @@
+<div class="container-fluid text-center">
+    <%= render "layouts/icon", user:@student%>
+      
+    <div class="text-left mt-4 flexible-fontsize">
+        <p>大学:<%= @student.college %></p>
+        <p>学年:<%= @student.grade %></p>
+        <p>プロフィール:<%= @student.profile %></p>
+    </div>
+</div>    

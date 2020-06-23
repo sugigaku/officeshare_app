@@ -69,6 +69,9 @@ class CompaniesController < ApplicationController
   end
 
   
+  def show_student
+    @student=Student.find(params[:id])
+  end
 
  private
 

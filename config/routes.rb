@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/students/login', to:'students#login'
   get '/students/rooms_index', to: 'students#rooms_index'
   get '/students/application_posts', to: 'students#application_posts'
+  get 'show_company/:id(.:format)',to: 'students#show_company'
   resources :students
   
 
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   post '/companies/login', to:'companies#login'
   get '/companies/posts', to: 'companies#posts'
   get '/companies/rooms_index', to: 'companies#rooms_index'
+  get 'show_student/:id(.:format)',to: 'companies#show_student'
   resources :companies
   
 
