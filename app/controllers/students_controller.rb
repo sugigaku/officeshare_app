@@ -70,7 +70,10 @@ class StudentsController < ApplicationController
     @rooms = Room.where(student_id: @student.id)  
   end
 
-
+  
+  def show_company
+    @company=Company.find(params[:id])
+  end
 
   private
 

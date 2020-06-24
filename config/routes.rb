@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'messages/create'
-  get 'rooms/show'
+  
   root "home#top"
   get '/home/select', to: 'home#select'
   get '/home/login_select', to: 'home#login_select'
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
   post '/students/login', to:'students#login'
   get '/students/rooms_index', to: 'students#rooms_index'
   get '/students/application_posts', to: 'students#application_posts'
+  get 'show_company/:id(.:format)',to: 'students#show_company'
   resources :students
   
 
@@ -20,12 +20,13 @@ Rails.application.routes.draw do
   post '/companies/login', to:'companies#login'
   get '/companies/posts', to: 'companies#posts'
   get '/companies/rooms_index', to: 'companies#rooms_index'
+  get 'show_student/:id(.:format)',to: 'companies#show_student'
   resources :companies
   
 
   resources :posts
 
-
+  get '/rooms/room_messages/:id', to: "rooms#room_messages", as: "room_messages"
   resources :rooms
 
 
