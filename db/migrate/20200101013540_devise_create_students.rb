@@ -42,3 +42,4 @@ class DeviseCreateStudents < ActiveRecord::Migration[6.0]
     # add_index :students, :unlock_token,         unique: true
   end
 end
+

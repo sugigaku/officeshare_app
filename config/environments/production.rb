@@ -94,17 +94,16 @@ Rails.application.configure do
   config.hosts << "minnanoheya.herokuapp.com"
   config.hosts << "minnanoheya-stg2.herokuapp.com"
 
-  config.action_mailer.default_url_options = {host: 'minnanoheya.herokuapp.com' }
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { :host => 'minnanoheya.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address => "smtp.gmail.com",
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => "heroku.com",
+    :address => "smtp.sendgrid.net",
     :port => 587,
-    :domain => 'smtp.gmail.com',
-    :user_name => ENV['GMAIL_USERNAME'],
-    :password => ENV['GMAIL_PASSWORD'],
-    :authentication => 'login',
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
 end
 
