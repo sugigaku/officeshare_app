@@ -8,7 +8,7 @@ Rails.application.configure do
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
+  config.eager_load = false
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
@@ -93,8 +93,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.hosts << "minnanoheya.herokuapp.com"
   config.hosts << "minnanoheya-stg2.herokuapp.com"
+  config.hosts << "minnano-heya.herokuapp.com"
 
-  config.action_mailer.default_url_options = { :host => 'minnanoheya.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'minnano-heya.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
