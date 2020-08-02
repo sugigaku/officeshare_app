@@ -95,7 +95,7 @@ Rails.application.configure do
   config.hosts << "minnanoheya-stg2.herokuapp.com"
   config.hosts << "minnano-heya.herokuapp.com"
 
-  config.action_mailer.default_url_options = { :host => 'minnano-heya.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'minnanoheya.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
