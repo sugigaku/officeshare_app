@@ -17,15 +17,17 @@
   <body>
     <header>
      <div class="container-fluied">
-      <% if session[:student_id] %>
-        <%= render "layouts/header", user:@student%>
-      <% elsif session[:company_id] %>
+      <% if current_company %>
         <%= render "layouts/header", user:@company%>
-        <%end%>
+      
+      <% elsif current_student %>
+        <%= render "layouts/header", user:@student%> 
+
+      <%end%>
      </div>  
     
     </header>
-
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

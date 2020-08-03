@@ -1,5 +1,5 @@
 <div class="container-fluid">
-<% if session[:student_id] %>
+<% if current_student %>
  <div class="row">
    <div class="col col-md-2">
      <ul class="show_list">
@@ -28,7 +28,9 @@
         <p>学年:<%= @student.grade %></p>
         <p>プロフィール:<%= @student.profile %></p>
     </div>
-    <% if session[:student_id] %>
-      <a href="/students/<%= @student.id %>/edit" class="flexible-fontsize"><i class="fa fa-pencil" aria-hidden="true"></i>編集</a>
+    <% if current_student %>
+      <%= link_to edit_student_registration_path do%>
+        <i class="fa fa-pencil" aria-hidden="true"></i>編集
+      <% end %>
     <% end %>  
 </div>

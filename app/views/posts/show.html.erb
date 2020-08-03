@@ -1,32 +1,33 @@
-<div class="container-fluid">
+<div class="container">
+　<div clas="row">
+    <div class="col-6　col-offset-3">
+      <p class="flexible-fontsize">日付 <i class="fa fa-calendar" aria-hidden="true"></i> 　<%= @post.date %></p>
+      
+      <p class="flexible-fontsize">場所 <i class="fa fa-building-o" aria-hidden="true"></i> 　<%= @post.place %></p>
 
-  <p class="flexible-fontsize">日付 <i class="fa fa-calendar" aria-hidden="true"></i> 　<%= @post.date %></p>
-  
-  <p class="flexible-fontsize">場所 <i class="fa fa-building-o" aria-hidden="true"></i> 　<%= @post.place %></p>
+      <p class="flexible-fontsize">最大人数 <i class="fa fa-users" aria-hidden="true"></i> 　~<%= @post.mxpeople %>人</p>
 
-  <p class="flexible-fontsize">最大人数 <i class="fa fa-users" aria-hidden="true"></i> 　~<%= @post.mxpeople %>人</p>
+      <p class="flexible-fontsize">条件 <i class="fa fa-handshake-o" aria-hidden="true"></i>　<%= @post.requirement %></p>
 
-  <p class="flexible-fontsize">条件 <i class="fa fa-handshake-o" aria-hidden="true"></i>　<%= @post.requirement %></p>
-
-  <p class="flexible-fontsize">詳細：<%= @post.detail %></p>
-
-
-  <% if session[:student_id]%>
-
-        <p>掲載会社: <a href = "/companies/<%=@posting_company.id%>"><%= @posting_company.name %></a></p>
-        <%= form_with model: @room, url: rooms_path, local: true do |f| %>
-          <input type="hidden" name="post_id" value="<%= @post.id %>">
-          <%= f.submit "応募する", class: 'btn btn-outline-dark' %>
-        <% end %>
-
-  <% else %>
-
-        <p>掲載会社:<%= @posting_company.name %></p>
-        <% if session[:company_id] === @posting_company.id %>
-            <p><a href ="<%= @post.id%>/edit">編集</a></p>
-        <% end %>
-
-  <% end %>
+      <p class="flexible-fontsize">詳細：<%= @post.detail %></p>
 
 
+      <% if current_student%>
+
+            <p class="flexible-fontsize">掲載会社: <a href = "/show_company/<%=@posting_company.id%>"><%= @posting_company.name %></a></p>
+            <%= form_with model: @room, url: rooms_path, local: true do |f| %>
+              <input type="hidden" name="post_id" value="<%= @post.id %>">
+              <%= f.submit "応募する", class: 'btn btn-outline-dark' %>
+            <% end %>
+
+      <% else %>
+
+            <p class="flexible-fontsize">掲載会社:<%= @posting_company.name %></p>
+            <% if current_company.id === @posting_company.id %>
+                <p><a href ="<%= @post.id%>/edit">編集</a></p>
+            <% end %>
+
+      <% end %>
+    </div>
+ </div>
 </div>

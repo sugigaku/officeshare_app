@@ -1,0 +1,67 @@
+<div class="container">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages %>
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" , class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :place %><br />
+      <%= f.text_field :place, autofocus: true, autocomplete: "place" , class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :profile %><br />
+      <%= f.text_area :profile, autofocus: true, autocomplete: "profile" , class: "form-control"%>
+  </div>
+
+
+ <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :新しいパスワード %> <i>(変更しない場合は何も書き込まないでください)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    <% if @minimum_password_length %>
+      <em><%= @minimum_password_length %> 文字以上</em>
+    <% end %>
+  </div> 
+
+
+  
+ <div class="form-group">
+    <%= f.label :パスワード確認 %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+  </div> 
+
+
+
+  <div class="form-group">
+    <%= f.label :icon %><br />
+    <%= f.file_field :icon, class: "form-control"%>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :現在のパスワード %> <i>(更新する場合必要です)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新する", class: 'btn btn-dark' %>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to "戻る", :back %>
+
+</div>

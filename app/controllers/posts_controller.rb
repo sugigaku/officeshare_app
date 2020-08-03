@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     def create  
       @post=Post.new(post_params)
       if @post.save
-         redirect_to "/companies/#{session[:company_id]}"
+         redirect_to root_url
       else
         render "new"
       end
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
 private
 
     def post_params
-      params.require(:post).permit(:place, :date, :mxpeople, :requirement, :detail, :office_image).merge({:company_id => session[:company_id]})
+      params.require(:post).permit(:place, :date, :mxpeople, :requirement, :detail, :office_image).merge({:company_id => current_company.id})
     end
 
     

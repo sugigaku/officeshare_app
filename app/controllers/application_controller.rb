@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user
- 
+  # before_action :set_current_user
+  before_action :configure_permitted_parameters_for_newcompany,  if: :devise_controller?
+  before_action :configure_permitted_parameters_for_updatecompany,  if: :devise_controller?
+  before_action :configure_permitted_parameters_for_newstudent,  if: :devise_controller?
+  before_action :configure_permitted_parameters_for_updatestudent,  if: :devise_controller?
   
   def set_current_user
     if session[:student_id]
@@ -26,4 +29,25 @@ class ApplicationController < ActionController::Base
   end
 
 
+  protected 
+   
+   def configure_permitted_parameters_for_newcompany
+    added_attrs = [ :name, :place, :profile]
+    devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
+   end
+
+   def configure_permitted_parameters_for_updatecompany
+    added_attrs = [ :name, :place, :profile, :icon]
+    devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
+   end
+
+   def configure_permitted_parameters_for_newstudent
+    added_attrs = [ :name, :college, :grade, :profile]
+    devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
+   end
+
+   def configure_permitted_parameters_for_updatestudent
+    added_attrs = [ :name, :college, :grade, :profile, :icon]
+    devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
+   end
 end
