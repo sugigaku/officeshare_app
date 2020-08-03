@@ -255,14 +255,8 @@ tbody {
 }
 /* ボタンの親領域 */
 .actions{
-  text-align: center;	  text-align: center;
-  margin-top: 5px;
+  text-align: center;
 }
-/* チャット領域のサイズ設定 */
-
-iframe {
-  min-height: 400px; 
-}	
 
 
 @media (max-width: 992px){
