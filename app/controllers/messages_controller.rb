@@ -10,8 +10,8 @@ class MessagesController < ApplicationController
       render template: 'rooms/show'
     end
   end
-
-
+  
+  
   private
 
   def message_params

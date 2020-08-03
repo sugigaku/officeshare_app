@@ -107,20 +107,21 @@
 
           <% if @message.errors.any? %>
                 <% @message.errors.full_messages.each do |e|%>
-                  <p class="error_message"><%= e %></p>
+                    <p class="error_message"><%= e %></p>
                 <% end %>
           <% end %>
 
-
           <%= form_with model: @message, url: messages_path, local: true do |f| %>
-                <%= f.text_field :content, class: "form-control", placeholder: "メッセージを入力" %>
-                <%= f.hidden_field :user_type, :value => false %>
-                <%= f.hidden_field :room_id, :value => @room.id %>
                 
+                <%= f.text_field :content, class: "form-control", placeholder: "メッセージを入力" %>
+                <% if session[:company_id]%>
+                  <%= f.hidden_field :user_type, :value => false %>
+                <%else%>
+                  <%= f.hidden_field :user_type, :value => true %>
+                <%end%>
+                <%= f.hidden_field :room_id, :value => @room.id %>
+                <div class="actions">
                 <%= f.submit '送信', class: "btn btn-outline-dark" %>
+                </div>
           <% end %>
-
-<% end %>
-
 </div>
-

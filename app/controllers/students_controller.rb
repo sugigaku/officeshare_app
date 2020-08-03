@@ -74,7 +74,6 @@ class StudentsController < ApplicationController
     @company=Company.find(params[:id])
   end
 
-
   private
 
 
